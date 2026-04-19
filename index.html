@@ -1,898 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Family World Cup Pool 2026 🏆</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --green: #00a550;
-    --green-dark: #007a3d;
-    --gold: #f5c518;
-    --gold-dark: #d4a800;
-    --red: #e63946;
-    --navy: #0d1b2a;
-    --navy2: #1b2a3b;
-    --white: #f8f9fa;
-    --gray: #8892a0;
-    --card: #162233;
-    --border: rgba(255,255,255,0.07);
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#00a550;--gd:#007a3d;--gold:#f5c518;--goldd:#c9a000;
+  --red:#e63946;--navy:#0d1b2a;--navy2:#152236;--navy3:#1e3048;
+  --white:#f0f4f8;--gray:#7a8899;--border:rgba(255,255,255,0.08);
+}
+body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,0.012) 0,rgba(255,255,255,0.012) 1px,transparent 1px,transparent 48px),
+             repeating-linear-gradient(90deg,rgba(255,255,255,0.012) 0,rgba(255,255,255,0.012) 1px,transparent 1px,transparent 48px);
+  pointer-events:none;z-index:0}
 
-  /* ---- GRASS TEXTURE BG ---- */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background-image:
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 60px),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 60px);
-    pointer-events: none; z-index: 0;
-  }
+/* HEADER */
+header{position:relative;z-index:5;background:linear-gradient(135deg,#004d20 0%,#006b2e 40%,var(--navy2) 100%);border-bottom:3px solid var(--gold)}
+.hinner{max-width:1100px;margin:0 auto;padding:24px 20px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.6rem);letter-spacing:3px;line-height:1;
+   background:linear-gradient(135deg,#fff 20%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:rgba(255,255,255,0.55);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+.ball{font-size:3rem;animation:spin 10s linear infinite;display:inline-block;filter:drop-shadow(0 0 10px rgba(245,197,24,.4))}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-  /* ---- HEADER ---- */
-  header {
-    position: relative; z-index: 10;
-    background: linear-gradient(135deg, var(--green-dark) 0%, #005a2a 50%, var(--navy) 100%);
-    padding: 0 0 0 0;
-    border-bottom: 3px solid var(--gold);
-    overflow: hidden;
-  }
-  .header-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 28px 24px 20px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 16px; flex-wrap: wrap;
-  }
-  .logo-area h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    letter-spacing: 3px;
-    line-height: 1;
-    background: linear-gradient(135deg, #fff 30%, var(--gold));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .logo-area p { color: rgba(255,255,255,0.7); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
-  .ball-spin {
-    font-size: 3.5rem;
-    animation: spin 8s linear infinite;
-    display: inline-block;
-    filter: drop-shadow(0 0 12px rgba(245,197,24,0.5));
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+/* NAV */
+nav{position:relative;z-index:5;background:var(--navy2);border-bottom:1px solid var(--border);display:flex;justify-content:center;flex-wrap:wrap;gap:4px;padding:8px 12px}
+.nav-btn{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  background:transparent;color:var(--gray);border:2px solid transparent;border-radius:6px;padding:8px 18px;cursor:pointer;transition:.2s all}
+.nav-btn:hover{color:var(--white);border-color:var(--border)}
+.nav-btn.active{color:var(--gold);border-color:var(--gold);background:rgba(245,197,24,.07)}
 
-  /* ---- NAV ---- */
-  nav {
-    position: relative; z-index: 10;
-    background: var(--navy2);
-    border-bottom: 2px solid var(--border);
-    display: flex; justify-content: center; gap: 4px;
-    padding: 8px 16px; flex-wrap: wrap;
-  }
-  nav button {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.05rem; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase;
-    background: transparent; color: var(--gray);
-    border: 2px solid transparent; border-radius: 6px;
-    padding: 8px 20px; cursor: pointer;
-    transition: all 0.2s;
-  }
-  nav button:hover { color: var(--white); border-color: var(--border); }
-  nav button.active {
-    color: var(--gold); border-color: var(--gold);
-    background: rgba(245,197,24,0.08);
-  }
+/* MAIN */
+main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:28px 16px 80px}
+.page{display:none}.page.active{display:block}
 
-  /* ---- MAIN ---- */
-  main { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 32px 16px 80px; }
+/* TITLES */
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:3px;color:var(--gold);margin-bottom:4px}
+.ssub{color:var(--gray);font-size:.82rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:26px}
 
-  /* ---- SECTION TITLES ---- */
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.4rem; letter-spacing: 3px;
-    color: var(--gold); margin-bottom: 4px;
-  }
-  .section-sub { color: var(--gray); font-size: 0.9rem; margin-bottom: 28px; letter-spacing: 1px; text-transform: uppercase; }
+/* CARDS */
+.card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px}
 
-  /* ---- CARDS ---- */
-  .card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+/* SETUP GRID */
+.setup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.team-card{background:var(--navy2);border:2px solid var(--border);border-radius:14px;padding:20px;transition:border-color .2s}
+.team-card.full{border-color:var(--g)}
+.tc-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.tc-mascot{font-size:2.2rem;line-height:1;cursor:default}
+.tc-name{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:1px;
+  background:transparent;border:none;border-bottom:2px solid var(--border);color:var(--white);width:100%;padding:3px 2px;outline:none;transition:.2s}
+.tc-name:focus{border-bottom-color:var(--gold)}
+.mascot-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.mb{font-size:1.3rem;background:rgba(255,255,255,.04);border:2px solid transparent;border-radius:7px;padding:3px 7px;cursor:pointer;transition:.15s}
+.mb:hover,.mb.sel{border-color:var(--gold);background:rgba(245,197,24,.1)}
+.slots{display:flex;flex-direction:column;gap:7px}
+.slot{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:8px 11px;font-size:.9rem}
+.slot-flag{font-size:1.2rem}
+.slot-name{flex:1;color:var(--gray);font-style:italic}
+.slot-name.on{color:var(--white);font-style:normal;font-weight:600}
+.slot-rm{background:none;border:none;color:var(--red);cursor:pointer;font-size:.95rem;padding:0 3px;opacity:.6;transition:.15s}
+.slot-rm:hover{opacity:1}
+.pick-btn{margin-top:10px;width:100%;background:linear-gradient(135deg,var(--g),var(--gd));color:#fff;border:none;border-radius:8px;
+  font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:1px;padding:10px;cursor:pointer;transition:.2s}
+.pick-btn:disabled{opacity:.3;cursor:not-allowed}
+.pick-btn:not(:disabled):hover{opacity:.85}
 
-  /* ---- SETUP PAGE ---- */
-  .setup-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .team-card {
-    background: var(--card); border: 2px solid var(--border);
-    border-radius: 14px; padding: 22px; position: relative;
-    transition: border-color 0.2s;
-  }
-  .team-card.filled { border-color: var(--green); }
-  .team-card-header {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
-  }
-  .team-mascot { font-size: 2.5rem; line-height: 1; }
-  .team-name-input {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;
-    background: transparent; border: none; border-bottom: 2px solid var(--border);
-    color: var(--white); width: 100%; padding: 4px 2px;
-    transition: border-color 0.2s; outline: none;
-  }
-  .team-name-input:focus { border-bottom-color: var(--gold); }
-  .mascot-picker {
-    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
-  }
-  .mascot-btn {
-    font-size: 1.4rem; background: rgba(255,255,255,0.05);
-    border: 2px solid transparent; border-radius: 8px;
-    padding: 4px 8px; cursor: pointer;
-    transition: all 0.15s;
-  }
-  .mascot-btn:hover, .mascot-btn.selected { border-color: var(--gold); background: rgba(245,197,24,0.1); }
-  .country-slots { display: flex; flex-direction: column; gap: 8px; }
-  .country-slot {
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-    border-radius: 8px; padding: 8px 12px;
-    font-size: 0.95rem;
-  }
-  .slot-flag { font-size: 1.3rem; }
-  .slot-name { flex: 1; color: var(--gray); font-style: italic; }
-  .slot-name.picked { color: var(--white); font-style: normal; font-weight: 600; }
-  .slot-remove {
-    background: none; border: none; color: var(--red);
-    cursor: pointer; font-size: 1rem; padding: 0 4px;
-    opacity: 0.6; transition: opacity 0.15s;
-  }
-  .slot-remove:hover { opacity: 1; }
-  .country-picker-btn {
-    margin-top: 10px; width: 100%;
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
-    color: #fff; border: none; border-radius: 8px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem; font-weight: 700; letter-spacing: 1px;
-    padding: 10px; cursor: pointer;
-    transition: opacity 0.2s;
-  }
-  .country-picker-btn:disabled { opacity: 0.35; cursor: not-allowed; }
-  .country-picker-btn:not(:disabled):hover { opacity: 0.85; }
+/* MODAL */
+.overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.78);backdrop-filter:blur(5px);
+  display:flex;align-items:center;justify-content:center;padding:16px;animation:fi .2s}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.modal{background:var(--navy2);border:1px solid var(--border);border-radius:16px;padding:26px;
+  width:100%;max-width:620px;max-height:84vh;overflow-y:auto;animation:su .25s ease}
+@keyframes su{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal h3{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:2px;color:var(--gold);margin-bottom:14px}
+.msearch{width:100%;background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:8px;
+  color:var(--white);font-size:.95rem;padding:9px 13px;outline:none;margin-bottom:14px;transition:.2s}
+.msearch:focus{border-color:var(--gold)}
+.glabel{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:2px;color:var(--gold);
+  text-transform:uppercase;margin:11px 0 7px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(138px,1fr));gap:7px}
+.cbtn{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:2px solid transparent;border-radius:8px;
+  padding:7px 9px;cursor:pointer;color:var(--white);font-size:.85rem;font-weight:600;text-align:left;transition:.15s;width:100%}
+.cbtn:hover{border-color:var(--g);background:rgba(0,165,80,.12)}
+.cbtn.taken{opacity:.3;cursor:not-allowed;pointer-events:none}
+.mclose{margin-top:18px;width:100%;background:rgba(255,255,255,.06);border:1px solid var(--border);
+  color:var(--gray);border-radius:8px;padding:10px;cursor:pointer;font-size:.95rem;transition:.15s}
+.mclose:hover{color:var(--white);border-color:var(--gray)}
 
-  /* ---- COUNTRY PICKER MODAL ---- */
-  .modal-overlay {
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-    animation: fadeIn 0.2s;
-  }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .modal {
-    background: var(--navy2); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px; width: 100%; max-width: 640px;
-    max-height: 85vh; overflow-y: auto;
-    animation: slideUp 0.25s ease;
-  }
-  @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .modal h3 {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem;
-    letter-spacing: 2px; color: var(--gold); margin-bottom: 16px;
-  }
-  .modal-search {
-    width: 100%; background: rgba(255,255,255,0.07);
-    border: 1px solid var(--border); border-radius: 8px;
-    color: var(--white); font-size: 1rem; padding: 10px 14px;
-    outline: none; margin-bottom: 16px;
-    transition: border-color 0.2s;
-  }
-  .modal-search:focus { border-color: var(--gold); }
-  .group-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
-    color: var(--gold); text-transform: uppercase;
-    margin: 12px 0 8px; padding-bottom: 4px;
-    border-bottom: 1px solid var(--border);
-  }
-  .countries-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
-  .country-btn {
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.05); border: 2px solid transparent;
-    border-radius: 8px; padding: 8px 10px; cursor: pointer;
-    transition: all 0.15s; color: var(--white);
-    font-size: 0.88rem; font-weight: 600;
-    text-align: left;
-  }
-  .country-btn:hover { border-color: var(--green); background: rgba(0,165,80,0.12); }
-  .country-btn.taken { opacity: 0.35; cursor: not-allowed; }
-  .country-btn.taken:hover { border-color: transparent; background: rgba(255,255,255,0.05); }
-  .modal-close {
-    margin-top: 20px; width: 100%;
-    background: rgba(255,255,255,0.07); border: 1px solid var(--border);
-    color: var(--gray); border-radius: 8px; padding: 10px;
-    cursor: pointer; font-size: 1rem;
-    transition: all 0.15s;
-  }
-  .modal-close:hover { color: var(--white); border-color: var(--gray); }
+/* STANDINGS */
+.std-actions{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.btn{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:1px;
+  border-radius:8px;padding:9px 20px;cursor:pointer;border:2px solid transparent;transition:.2s}
+.btn-gold{background:var(--gold);color:var(--navy)}.btn-gold:hover{background:var(--goldd)}
+.btn-outline{background:transparent;color:var(--gold);border-color:var(--gold)}.btn-outline:hover{background:rgba(245,197,24,.1)}
+.btn-green{background:var(--g);color:#fff}.btn-green:hover{background:var(--gd)}
+table{width:100%;border-collapse:collapse}
+th{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);padding:10px 14px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:12px 14px;border-bottom:1px solid var(--border)}
+tr:hover td{background:rgba(255,255,255,.02)}
+.rank{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.07)}
+.rank.r1{background:var(--gold);color:var(--navy)}
+.rank.r2{background:#9aa5b4;color:var(--navy)}
+.rank.r3{background:#b87333;color:#fff}
+.tname{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700}
+.cpills{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px}
+.pill{font-size:.72rem;background:rgba(255,255,255,.07);border-radius:4px;padding:2px 7px;color:var(--gray)}
+.pts{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);text-align:right}
+.pts-in{width:65px;background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:6px;
+  color:var(--white);text-align:center;font-size:1rem;padding:5px;outline:none}
+.pts-in:focus{border-color:var(--gold)}
 
-  /* ---- STANDINGS ---- */
-  .standings-table { width: 100%; border-collapse: collapse; }
-  .standings-table th {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gold); padding: 10px 14px; text-align: left;
-    border-bottom: 2px solid var(--border);
-  }
-  .standings-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
-  .standings-table tr:hover td { background: rgba(255,255,255,0.03); }
-  .rank-badge {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem;
-    width: 36px; height: 36px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.08);
-  }
-  .rank-badge.gold { background: var(--gold); color: var(--navy); }
-  .rank-badge.silver { background: #a0a8b5; color: var(--navy); }
-  .rank-badge.bronze { background: #cd7f32; color: #fff; }
-  .team-row-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.2rem; font-weight: 700;
-  }
-  .team-countries-mini { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
-  .country-pill {
-    font-size: 0.75rem; background: rgba(255,255,255,0.07);
-    border-radius: 4px; padding: 2px 8px; color: var(--gray);
-  }
-  .pts-cell {
-    font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem;
-    color: var(--gold); text-align: right;
-  }
-  .pts-input {
-    width: 60px; background: rgba(255,255,255,0.07);
-    border: 1px solid var(--border); border-radius: 6px;
-    color: var(--white); text-align: center;
-    font-size: 1rem; padding: 4px 6px; outline: none;
-  }
-  .pts-input:focus { border-color: var(--gold); }
-  .standings-actions { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
-  .btn {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem; font-weight: 700; letter-spacing: 1px;
-    border-radius: 8px; padding: 10px 22px; cursor: pointer;
-    border: 2px solid transparent; transition: all 0.2s;
-  }
-  .btn-primary { background: var(--gold); color: var(--navy); }
-  .btn-primary:hover { background: var(--gold-dark); }
-  .btn-outline { background: transparent; color: var(--gold); border-color: var(--gold); }
-  .btn-outline:hover { background: rgba(245,197,24,0.1); }
-  .btn-green { background: var(--green); color: #fff; }
-  .btn-green:hover { background: var(--green-dark); }
+/* FACTS */
+.fsearch{width:100%;max-width:400px;background:rgba(255,255,255,.07);border:1px solid var(--border);
+  border-radius:8px;color:var(--white);font-size:.95rem;padding:9px 13px;outline:none;margin-bottom:22px}
+.fsearch:focus{border-color:var(--gold)}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.fcard{background:var(--navy2);border:1px solid var(--border);border-radius:13px;overflow:hidden}
+.fhead{display:flex;align-items:center;gap:12px;padding:16px 18px 13px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)}
+.fflag{font-size:2.2rem}
+.fcname{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px}
+.ftabs{display:flex;border-bottom:1px solid var(--border)}
+.ftab{flex:1;background:none;border:none;border-bottom:2px solid transparent;color:var(--gray);
+  font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:9px;cursor:pointer;transition:.15s}
+.ftab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.fbody{padding:15px 18px;font-size:.88rem;line-height:1.65;color:rgba(255,255,255,.8);min-height:110px}
+.rtitle{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:7px}
+.ilist{list-style:none;margin-bottom:9px}
+.ilist li::before{content:'•';color:var(--g);margin-right:6px}
+.rsteps{color:var(--gray);font-size:.82rem;line-height:1.6;margin-top:6px}
 
-  /* ---- SCORE EDITOR ---- */
-  .score-editor { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 24px; }
-  .score-editor-header { background: rgba(255,255,255,0.04); padding: 14px 20px; border-bottom: 1px solid var(--border); font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 2px; color: var(--gray); text-transform: uppercase; }
+/* SMACK */
+.sfeed{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.sbubble{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:15px 18px;animation:pop .3s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes pop{from{transform:scale(.92) translateY(8px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.shead{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.smascot{font-size:1.5rem}
+.steam{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;color:var(--gold)}
+.stime{font-size:.72rem;color:var(--gray);margin-left:auto}
+.stext{font-size:.9rem;line-height:1.5}
+.scompose{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.ssel{background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:.9rem;padding:9px 11px;outline:none;cursor:pointer}
+.sinput{flex:1;min-width:180px;background:rgba(255,255,255,.07);border:1px solid var(--border);border-radius:8px;color:var(--white);font-size:.9rem;padding:9px 13px;outline:none}
+.sinput:focus{border-color:var(--gold)}
 
-  /* ---- FUN FACTS ---- */
-  .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-  .fact-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
-  .fact-card-header { padding: 18px 20px 14px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.03); }
-  .fact-flag { font-size: 2.4rem; }
-  .fact-country-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; }
-  .fact-tabs { display: flex; border-bottom: 1px solid var(--border); }
-  .fact-tab { flex: 1; background: none; border: none; color: var(--gray); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 10px; cursor: pointer; transition: all 0.15s; border-bottom: 2px solid transparent; }
-  .fact-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-  .fact-body { padding: 16px 20px; min-height: 120px; font-size: 0.92rem; line-height: 1.6; color: rgba(255,255,255,0.82); }
-  .recipe-title { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
-  .ingredient-list { list-style: none; margin-bottom: 10px; }
-  .ingredient-list li::before { content: '•'; color: var(--green); margin-right: 6px; }
-  .filter-bar { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; align-items: center; }
-  .filter-input {
-    flex: 1; min-width: 180px;
-    background: rgba(255,255,255,0.07); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--white); font-size: 0.95rem; padding: 9px 14px; outline: none;
-  }
-  .filter-input:focus { border-color: var(--gold); }
+/* CONFETTI */
+.cp{position:fixed;top:-20px;border-radius:3px;animation:cf linear forwards;pointer-events:none;z-index:9999}
+@keyframes cf{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 
-  /* ---- SMACK TALK ---- */
-  .talk-feed { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-  .talk-bubble {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 12px; padding: 16px 20px;
-    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  @keyframes popIn { from { transform: scale(0.9) translateY(10px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
-  .talk-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-  .talk-mascot { font-size: 1.6rem; }
-  .talk-team { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; color: var(--gold); }
-  .talk-time { font-size: 0.75rem; color: var(--gray); margin-left: auto; }
-  .talk-text { font-size: 0.95rem; line-height: 1.5; }
-  .talk-composer { display: flex; gap: 10px; flex-wrap: wrap; }
-  .talk-select {
-    background: rgba(255,255,255,0.07); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--white); font-size: 0.95rem; padding: 10px 12px;
-    outline: none; cursor: pointer;
-  }
-  .talk-input {
-    flex: 1; min-width: 200px;
-    background: rgba(255,255,255,0.07); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--white); font-size: 0.95rem; padding: 10px 14px;
-    outline: none;
-  }
-  .talk-input:focus { border-color: var(--gold); }
+/* EMPTY */
+.empty{text-align:center;padding:50px 20px;color:var(--gray)}
+.empty .ei{font-size:3.5rem;margin-bottom:12px}
+.empty h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:rgba(255,255,255,.25);margin-bottom:6px}
 
-  /* ---- CONFETTI ---- */
-  .confetti-piece {
-    position: fixed; top: -20px; border-radius: 3px;
-    animation: confettiFall linear forwards;
-    pointer-events: none; z-index: 9999;
-  }
-  @keyframes confettiFall {
-    to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-  }
-
-  /* ---- EMPTY STATE ---- */
-  .empty-state { text-align: center; padding: 60px 20px; color: var(--gray); }
-  .empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
-  .empty-state h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: rgba(255,255,255,0.3); margin-bottom: 8px; }
-
-  /* ---- RESPONSIVE ---- */
-  @media (max-width: 600px) {
-    .header-inner { padding: 20px 16px 14px; }
-    .logo-area h1 { font-size: 2rem; }
-  }
+@media(max-width:580px){.hinner{padding:18px 14px 14px}.stitle{font-size:1.8rem}}
 </style>
 </head>
 <body>
+<div id="confetti-host"></div>
 
 <header>
-  <div class="header-inner">
-    <div class="logo-area">
+  <div class="hinner">
+    <div>
       <h1>⚽ Family World Cup Pool</h1>
-      <p>FIFA World Cup 2026 &nbsp;·&nbsp; USA / Canada / Mexico</p>
+      <div class="sub">FIFA World Cup 2026 · USA / Canada / Mexico</div>
     </div>
-    <span class="ball-spin">⚽</span>
+    <span class="ball">⚽</span>
   </div>
 </header>
 
 <nav id="nav">
-  <button class="active" data-page="setup">🏗️ Team Setup</button>
-  <button data-page="standings">🏆 Standings</button>
-  <button data-page="facts">🌎 Country Facts</button>
-  <button data-page="smack">💬 Smack Talk</button>
+  <button class="nav-btn active" data-p="setup">🏗 Team Setup</button>
+  <button class="nav-btn" data-p="standings">🏆 Standings</button>
+  <button class="nav-btn" data-p="facts">🌎 Country Facts</button>
+  <button class="nav-btn" data-p="smack">💬 Smack Talk</button>
 </nav>
 
-<main id="main-content"></main>
-
-<!-- Confetti container -->
-<div id="confetti-container"></div>
+<main>
+  <div id="pg-setup"   class="page active"></div>
+  <div id="pg-standings" class="page"></div>
+  <div id="pg-facts"   class="page"></div>
+  <div id="pg-smack"  class="page"></div>
+</main>
 
 <script>
-// =============================================
-// DATA
-// =============================================
-
+// ─── DATA ───────────────────────────────────────────────────────
 const MASCOTS = ['🦁','🐯','🦅','🐺','🦊','🐉','🦈','🐻','🦋','🦏','🦍','🦜','🐊','🦩','🦚'];
 
-const WORLD_CUP_2026 = {
-  'Group A': [{name:'USA', flag:'🇺🇸'},{name:'Mexico',flag:'🇲🇽'},{name:'Canada',flag:'🇨🇦'},{name:'Serbia',flag:'🇷🇸'}],
-  'Group B': [{name:'Germany',flag:'🇩🇪'},{name:'Netherlands',flag:'🇳🇱'},{name:'Spain',flag:'🇪🇸'},{name:'Morocco',flag:'🇲🇦'}],
-  'Group C': [{name:'Brazil',flag:'🇧🇷'},{name:'Argentina',flag:'🇦🇷'},{name:'Ecuador',flag:'🇪🇨'},{name:'Cameroon',flag:'🇨🇲'}],
-  'Group D': [{name:'France',flag:'🇫🇷'},{name:'England',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},{name:'Portugal',flag:'🇵🇹'},{name:'Belgium',flag:'🇧🇪'}],
-  'Group E': [{name:'Japan',flag:'🇯🇵'},{name:'South Korea',flag:'🇰🇷'},{name:'Saudi Arabia',flag:'🇸🇦'},{name:'Iran',flag:'🇮🇷'}],
-  'Group F': [{name:'Italy',flag:'🇮🇹'},{name:'Croatia',flag:'🇭🇷'},{name:'Switzerland',flag:'🇨🇭'},{name:'Ukraine',flag:'🇺🇦'}],
-  'Group G': [{name:'Poland',flag:'🇵🇱'},{name:'Colombia',flag:'🇨🇴'},{name:'Chile',flag:'🇨🇱'},{name:'Senegal',flag:'🇸🇳'}],
-  'Group H': [{name:'Australia',flag:'🇦🇺'},{name:'Denmark',flag:'🇩🇰'},{name:'Turkey',flag:'🇹🇷'},{name:'Egypt',flag:'🇪🇬'}],
-  'Group I': [{name:'Nigeria',flag:'🇳🇬'},{name:'Uruguay',flag:'🇺🇾'},{name:'Scotland',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},{name:'Greece',flag:'🇬🇷'}],
+const GROUPS = {
+  'Group A':[{n:'USA',f:'🇺🇸'},{n:'Mexico',f:'🇲🇽'},{n:'Canada',f:'🇨🇦'},{n:'Serbia',f:'🇷🇸'}],
+  'Group B':[{n:'Germany',f:'🇩🇪'},{n:'Netherlands',f:'🇳🇱'},{n:'Spain',f:'🇪🇸'},{n:'Morocco',f:'🇲🇦'}],
+  'Group C':[{n:'Brazil',f:'🇧🇷'},{n:'Argentina',f:'🇦🇷'},{n:'Ecuador',f:'🇪🇨'},{n:'Cameroon',f:'🇨🇲'}],
+  'Group D':[{n:'France',f:'🇫🇷'},{n:'England',f:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},{n:'Portugal',f:'🇵🇹'},{n:'Belgium',f:'🇧🇪'}],
+  'Group E':[{n:'Japan',f:'🇯🇵'},{n:'South Korea',f:'🇰🇷'},{n:'Saudi Arabia',f:'🇸🇦'},{n:'Iran',f:'🇮🇷'}],
+  'Group F':[{n:'Italy',f:'🇮🇹'},{n:'Croatia',f:'🇭🇷'},{n:'Switzerland',f:'🇨🇭'},{n:'Ukraine',f:'🇺🇦'}],
+  'Group G':[{n:'Poland',f:'🇵🇱'},{n:'Colombia',f:'🇨🇴'},{n:'Chile',f:'🇨🇱'},{n:'Senegal',f:'🇸🇳'}],
+  'Group H':[{n:'Australia',f:'🇦🇺'},{n:'Denmark',f:'🇩🇰'},{n:'Turkey',f:'🇹🇷'},{n:'Egypt',f:'🇪🇬'}],
+  'Group I':[{n:'Nigeria',f:'🇳🇬'},{n:'Uruguay',f:'🇺🇾'},{n:'Scotland',f:'🏴󠁧󠁢󠁳󠁣󠁴󠁿'},{n:'Greece',f:'🇬🇷'}],
+};
+const ALL = Object.values(GROUPS).flat();
+
+const FACTS = {
+  'USA':{fact:"Home to 330M+ people. The USMNT has qualified for 11 World Cups. Soccer is the fastest-growing sport in the country and the 2026 edition is set to be the biggest World Cup ever with 48 teams.",recipe:{name:'🍔 Classic Cheeseburger',ing:['1 lb ground beef (80/20 blend)','4 slices American cheese','4 brioche buns','Lettuce, tomato, onion, pickles','Special sauce: mayo + ketchup + relish'],steps:'Form 4 patties, season with salt & pepper. Grill on high 3-4 min per side. Melt cheese on in last minute. Toast buns. Build with all the toppings and sauce.'}},
+  'Mexico':{fact:"El Tri have qualified for 17 World Cups — a national obsession. Their greatest moment was the 1986 quarter-final on home soil. Mexico co-hosts 2026, playing their group games at the iconic Estadio Azteca.",recipe:{name:'🥑 Guacamole Auténtico',ing:['3 ripe avocados','1 lime, juiced','½ white onion, finely diced','2 serrano peppers, minced','Handful fresh cilantro','Salt to taste'],steps:'Mash avocados coarsely — keep it chunky. Fold in all ingredients. Taste, season, serve immediately with tortilla chips. Never use a food processor. Never add sour cream.'}},
+  'Canada':{fact:"Canada qualified for the 2022 World Cup for the first time in 36 years AND co-hosts 2026. The Canadian Premier League is growing fast and a new golden generation is capturing the country's imagination.",recipe:{name:'🍟 Poutine',ing:['4 large russet potatoes (cut into fries)','2 cups beef gravy','2 cups fresh cheese curds','Salt & pepper'],steps:'Cut and double-fry potatoes until golden and crispy. Heat gravy until bubbling hot. Layer fries in a bowl, add cheese curds, immediately smother with hot gravy. The heat slightly melts the curds. Serve at once.'}},
+  'Brazil':{fact:"Brazil are the most decorated World Cup nation with 5 titles (1958, 1962, 1970, 1994, 2002). The only team to appear in every single World Cup. Joga bonito — beautiful game — is their birthright.",recipe:{name:'🍖 Churrasco Picanha',ing:['2 lbs picanha (top sirloin cap)','Coarse sea salt only','Chimichurri to serve'],steps:'Score the fat cap in crosshatch. Fold meat into a C-shape on the skewer. Season heavily with coarse salt. Grill over charcoal, rotating constantly for 20-30 min. Slice thin against the grain and serve immediately.'}},
+  'Argentina':{fact:"Argentina won the 2022 World Cup in Qatar in the most dramatic final in history — defeating France on penalties. Three World Cup titles total (1978, 1986, 2022). Messi finally got his crown.",recipe:{name:'🥩 Asado',ing:['Short ribs, flank steak, chorizo, morcilla','Coarse salt only','Chimichurri: parsley, garlic, oregano, olive oil, red wine vinegar, chili flakes'],steps:'Build a wood fire, let coals develop (no shortcuts). Salt meat generously. Grill slowly over moderate heat — asado is about patience, not speed. Serve with chimichurri and crusty bread. Open Malbec.'}},
+  'Germany':{fact:"Germany are four-time World Cup winners (1954, 1974, 1990, 2014). Renowned for efficiency and pressing football. The Bundesliga is one of the world's top leagues. Their 7-1 demolition of Brazil in 2014 remains one of the most shocking results in history.",recipe:{name:'🌭 Currywurst',ing:['4 bratwurst sausages','1 cup ketchup','2 tbsp curry powder','1 tsp smoked paprika','Dash of Worcestershire'],steps:'Grill or pan-fry bratwurst until charred. Simmer ketchup with curry powder, paprika, and a splash of water for 5 min. Slice sausage into rounds, pour sauce over. Serve with fries and a crusty bread roll.'}},
+  'France':{fact:"France won the 2018 World Cup in Russia and were runners-up in a penalty shootout in 2022. Two World Cup titles (1998, 2018). Les Bleus consistently field one of the most talented squads in the world.",recipe:{name:'🥐 Croque Monsieur',ing:['4 thick slices bread','4 slices good ham','150g Gruyère, grated','Béchamel: 2 tbsp butter, 2 tbsp flour, 1 cup milk, nutmeg','Dijon mustard'],steps:'Make béchamel: melt butter, whisk in flour, slowly add milk until thick. Spread mustard on bread, layer ham and half the cheese. Top with béchamel and remaining cheese. Bake 400°F / 200°C for 15 min until bubbling gold.'}},
+  'England':{fact:"England invented association football in the 19th century and won their only World Cup in 1966 on home soil. The Premier League is the most watched football league on Earth. 'Football's coming home' — always hopeful, frequently heartbroken.",recipe:{name:'🐟 Fish & Chips',ing:['4 thick cod or haddock fillets','Beer batter: 1.5 cups flour, 1 cup cold beer, salt','4 large potatoes for chips','Malt vinegar, mushy peas, tartar sauce'],steps:'Peel and cut thick chips, soak 30 min. Double-fry: first at 300°F to cook through, then 375°F for crunch. Mix beer batter until just combined (lumpy is fine). Dip fish, fry at 375°F until deep golden. Salt everything immediately.'}},
+  'Spain':{fact:"Spain won their only World Cup in 2010 with their iconic tiki-taka style. Euro champions in 1964, 2008, 2012, and 2024. La Liga is home to two of the world's biggest clubs: Real Madrid and FC Barcelona.",recipe:{name:'🥘 Paella Valenciana',ing:['2 cups bomba rice','Chicken thighs and rabbit (or mixed seafood)','Large pinch saffron','1 tsp smoked paprika','Green beans, butter beans, crushed tomato','1L hot chicken stock'],steps:'Bloom saffron in warm stock. Brown meat in wide paella pan with olive oil. Add tomato and paprika, fry 2 min. Add rice, stir to coat. Pour in saffron stock. Cook on high then reduce — DO NOT STIR AGAIN. Let socarrat crust form on bottom.'}},
+  'Netherlands':{fact:"The Netherlands reached three World Cup finals (1974, 1978, 2010) without winning. They invented Total Football under Johan Cruyff — arguably the most influential tactical system in history.",recipe:{name:'🧇 Stroopwafels',ing:['2 cups flour','½ cup butter, softened','¼ cup sugar, 1 egg, 1 tsp instant yeast','Caramel: ½ cup butter, ½ cup dark syrup, 1 cup brown sugar, 1 tsp cinnamon'],steps:'Mix dough, rest 1 hr. Press balls in a hot waffle iron until thin and golden. Immediately split each waffle horizontally. Spread warm caramel between the two halves. Best placed over a hot coffee mug to soften before eating.'}},
+  'Portugal':{fact:"Portugal won Euro 2016 but still chase their first World Cup. Eusébio's 1966 squad finished 3rd. Cristiano Ronaldo became the first man to score at 5 World Cups in 2022. Portugal play fluid, attacking football.",recipe:{name:'🐟 Bacalhau à Brás',ing:['500g salt cod (soaked 48hr, changing water)','4 eggs, beaten','1 onion, 3 garlic cloves','Fried shoestring potatoes','Black olives, fresh parsley'],steps:'Shred soaked and desalted cod. Sauté onion and garlic until golden. Add cod and potatoes, toss. Pour in beaten eggs off the heat, fold gently until just set — keep it creamy and slightly runny. Garnish with olives and parsley.'}},
+  'Italy':{fact:"Italy are four-time World Cup winners (1934, 1938, 1982, 2006). Shockingly missed the 2018 and nearly missed 2022. Known for Catenaccio defending and technical midfield play. The Azzurri always find a way.",recipe:{name:'🍝 Cacio e Pepe',ing:['400g spaghetti or tonnarelli','200g Pecorino Romano, very finely grated','50g Parmigiano Reggiano, finely grated','2 tsp black pepper, freshly and coarsely cracked'],steps:'Cook pasta al dente, reserve 2 cups pasta water. Toast pepper in dry pan 1 min. Add a ladle pasta water to pan. Off heat, add pasta, toss with cheeses adding pasta water slowly to form a creamy sauce. No cream. Ever.'}},
+  'Japan':{fact:"Japan has qualified for every World Cup since 1998. At the 2022 World Cup they sensationally defeated both Germany and Spain in the group stage. Known for their work rate, discipline, and impeccable sportsmanship.",recipe:{name:'🍛 Chicken Katsu Curry',ing:['2 chicken breasts, pounded thin','Panko breadcrumbs, egg, flour (for breading)','Japanese curry roux (S&B Golden Curry)','Onion, carrot, potato','Steamed Japanese short-grain rice'],steps:'Coat chicken: flour → egg → panko. Deep fry at 350°F until golden (165°F internal). Simmer diced veggies in water until soft, add curry roux blocks, stir until thick. Serve katsu sliced over rice with curry poured alongside.'}},
+  'South Korea':{fact:"South Korea's finest hour was co-hosting the 2002 World Cup and reaching the semi-finals — the best finish ever by an Asian team. They defeated Spain and Italy along the way. The Taeguk Warriors play with incredible heart.",recipe:{name:'🌶️ Bibimbap',ing:['2 cups steamed rice','Sautéed spinach, bean sprouts, julienned carrots, zucchini','Bulgogi beef (soy, sesame, garlic, pear marinade)','2 fried eggs (sunny side up)','Gochujang paste, sesame oil, sesame seeds'],steps:'Prepare each topping separately and season individually. Arrange beautifully over rice in a bowl. Top with egg and bulgogi. Add gochujang to taste. Drizzle sesame oil. Sprinkle seeds. Mix everything vigorously before eating.'}},
+  'Morocco':{fact:"Morocco made history at the 2022 World Cup — the first African nation ever to reach the semi-finals. They eliminated Spain and Portugal along the way. The Atlas Lions and their fans brought electrifying energy to Qatar.",recipe:{name:'🫕 Lamb Tagine',ing:['2 lbs lamb shoulder, cubed','1 onion, garlic, fresh ginger','2 tsp ras el hanout spice blend','Preserved lemon, green olives','½ cup dried apricots, 1 can chickpeas','Fresh cilantro and parsley, couscous to serve'],steps:'Brown lamb in tagine or Dutch oven. Sauté aromatics, add spices and a little water. Return meat, add preserved lemon rind and olives. Cover, cook low and slow 2 hrs. Add apricots last 30 min. Serve over fluffy couscous.'}},
+  'Croatia':{fact:"Croatia reached the World Cup final in 1998 (3rd place) and again finished 3rd in 2022. A nation of just 4 million people punching enormously above their weight. Their midfield football is technically exquisite.",recipe:{name:'🍗 Peka (Bell Dish)',ing:['1 whole chicken, cut up (or lamb)','Potatoes, zucchini, peppers, tomatoes, garlic','Fresh rosemary, olive oil, white wine','Salt and pepper generously'],steps:'Layer vegetables in a wide cast iron pan. Place chicken pieces on top. Season heavily, drizzle olive oil and wine. Cover with a domed peka lid or foil tightly. Bury under hot coals or roast at 425°F for 90 min undisturbed.'}},
+  'Australia':{fact:"The Socceroos had their greatest World Cup in 2022, reaching the quarter-finals where they pushed Argentina. The Women's team (Matildas) had a legendary 2023 home World Cup run reaching the semi-finals.",recipe:{name:'🥧 Aussie Meat Pie',ing:['Shortcrust pastry (base)','Puff pastry sheet (lid)','500g ground beef','1 onion, beef stock, Worcestershire sauce, tomato paste, flour','Tomato sauce (ketchup) to serve on top'],steps:'Brown mince and onion. Add stock, tomato paste, Worcestershire. Thicken with flour. Cool completely (vital — hot filling wrecks pastry). Line tin with shortcrust, fill, top with puff. Egg wash. Bake 390°F / 200°C for 25-30 min until golden.'}},
+  'Colombia':{fact:"Colombia were 1994 pre-tournament favorites who crashed out in the group stage in devastating fashion. James Rodríguez won the 2014 Golden Boot with a stunning tournament including a bicycle kick voted goal of the tournament.",recipe:{name:'🍲 Bandeja Paisa',ing:['Slow-cooked red beans with pork belly','White rice','Chicharrón (crispy fried pork belly)','Chorizo and seasoned ground beef','Fried egg, avocado slices, arepa, sweet plantain'],steps:'This is a feast, not a meal. Prepare each component separately. Arrange everything on the largest plate you own — the beans, rice, chicharrón, chorizo, beef, egg, avocado, and arepa all together. No combining. Judge your choices.'}},
+  'Poland':{fact:"Poland finished 3rd at the 1974 and 1982 World Cups. Robert Lewandowski is their greatest ever player and all-time leading scorer. The White Eagles are a consistent qualifier with a passionate fan base.",recipe:{name:'🥟 Pierogi Ruskie',ing:['Dough: 2 cups flour, 1 egg, ½ cup sour cream, pinch salt','Filling: 2 cups mashed potato, 1 cup farmer cheese, 1 onion sautéed','Butter + caramelized onions for serving, sour cream to top'],steps:'Make dough, wrap, rest 30 min. Mix filling well and season. Roll dough thin, cut 3-inch circles. Place filling in center, fold and crimp tightly. Boil in salted water until floating plus 2 min. Finish in butter until lightly golden.'}},
+  'Serbia':{fact:"Serbia have been an independent footballing nation since 2006 and have appeared in three World Cups. Known for producing world-class goalkeepers. Aleksandar Mitrović is their record-breaking all-time top scorer.",recipe:{name:'🥩 Ćevapčići',ing:['300g ground beef','200g ground pork','3 cloves garlic, minced','Salt, pepper, ¼ tsp baking soda (for texture)','Lepinja flatbread, ajvar spread, raw onion, sour cream'],steps:'Mix meats thoroughly with garlic, seasoning, and baking soda. Form into small finger-shaped sausages. Refrigerate at least 1 hour. Grill over high heat, turning often, 8-10 min until slightly charred. Serve inside lepinja with ajvar.'}},
+  'Ecuador':{fact:"Ecuador famously opened the 2022 World Cup by defeating hosts Qatar 2-0. Striker Enner Valencia scored all 3 of their goals in the tournament. A passionate football culture in a beautiful Andean nation.",recipe:{name:'🍲 Seco de Pollo',ing:['1 whole chicken, jointed','1 bottle beer (cerveza)','Ají amarillo or red peppers, onion, garlic, cumin','Tomatoes, cilantro, naranjilla juice','Yellow rice and avocado to serve'],steps:'Marinate chicken in beer and spices overnight. Brown pieces well. Blend tomato, peppers, and onion into a sauce. Simmer chicken in sauce 45 min, adding cilantro at the end. Serve over yellow rice with fried plantains and avocado.'}},
+  'Cameroon':{fact:"The Indomitable Lions are Africa's most successful World Cup team, reaching the quarter-finals in 1990 under Roger Milla. Milla's corner-flag dance became iconic. Cameroon have appeared in 8 World Cups.",recipe:{name:'🍛 Ndolé',ing:['500g bitter leaf (or spinach as substitute)','200g ground crayfish','250g peanut paste','500g beef and/or shrimp','Onion, garlic, ginger, bouillon cubes','Palm oil'],steps:'Blanch and squeeze bitter leaves several times to reduce bitterness. Brown meat with aromatics. Add peanut paste and crayfish with water, simmer 15 min. Fold in greens. Simmer 30 min. Serve over rice or with bobolo (cassava sticks).'}},
+  'Belgium':{fact:"Belgium's 'golden generation' peaked with a 3rd-place finish at the 2018 World Cup — their best ever. Players like De Bruyne, Lukaku, and Courtois made them one of the most talented squads ever assembled. Time is running out for them.",recipe:{name:'🍟 Belgian Frites + Andalouse',ing:['Bintje or Russet potatoes, cut thick','Beef fat (suet) or neutral oil','Sauce Andalouse: ½ cup mayo, 2 tbsp tomato paste, ¼ red pepper finely diced, squeeze lemon'],steps:'Cut potatoes THICK (Belgian style — not thin). First fry at 325°F for 5-7 min. Remove, cool completely. Second fry at 375°F until deep golden. Salt immediately. Mix all Andalouse ingredients. Serve frites in a paper cone.'}},
+  'Denmark':{fact:"Denmark's greatest footballing fairy tale was winning Euro 1992 as a last-minute replacement after Yugoslavia's disqualification. The Danes are always tactically organized and dangerous at set pieces.",recipe:{name:'🥪 Smørrebrød',ing:['Dense dark rye bread (rugbrød)','Lots of good butter (structural, not just flavoring)','Pickled herring or smoked salmon','Hard-boiled eggs, radishes, capers','Dill, red onion, remoulade'],steps:'Butter the rye bread thickly and generously — the butter is structural. Build open-faced toppings in a precise, overlapping, beautiful pattern. Each smørrebrød should look like a work of art. Eat with a knife and fork.'}},
+  'Uruguay':{fact:"Uruguay won the very first World Cup in 1930 on home soil, then won again in 1950 with the legendary 'Maracanazo' — defeating Brazil in Rio's Maracanã in what Brazilians still call the greatest tragedy in their history.",recipe:{name:'🍪 Alfajores',ing:['1 cup cornstarch (maicena)','½ cup flour, 1 tsp baking powder','½ cup butter, ¼ cup sugar, 2 egg yolks, 1 tsp vanilla, lemon zest','Thick dulce de leche for filling','Powdered sugar or coconut to roll'],steps:'Cream butter and sugar. Add yolks, vanilla, and zest. Mix in dry ingredients to form a soft, sandy dough. Chill 1 hour. Roll 5mm thick, cut rounds. Bake at 300°F for 11-13 min — pale, not golden. Cool completely. Sandwich with thick dulce de leche.'}},
+  'Switzerland':{fact:"Switzerland hosted the 1954 World Cup and regularly qualifies for the tournament. Known for their rock-solid defensive organization and reliable tactical setup. The Swiss are never flashy but always dangerous.",recipe:{name:'🫕 Cheese Fondue',ing:['200g Gruyère, grated','200g Emmental, grated','1 garlic clove','300ml dry white wine','1 tbsp cornstarch mixed with 2 tbsp Kirsch','Nutmeg, pepper, crusty bread to dip'],steps:'Rub fondue pot with garlic. Heat wine to a simmer (not boil). Add cheese in handfuls, stirring in a figure-8 pattern. Stir in cornstarch-Kirsch mixture. Season with nutmeg and pepper. Keep warm. Keep stirring. Dip everything.'}},
+  'Iran':{fact:"Iran are Asia's most World Cup-qualified team with 6 appearances. They dramatically defeated England 6-2 in their opening 2022 match. Football is a deeply important part of Persian culture and identity.",recipe:{name:'🍚 Ghormeh Sabzi',ing:['500g lamb or beef, cubed','Large bunch mixed fresh herbs: fenugreek, parsley, leek (sautéed very dark)','1 can kidney beans','4 dried limes (limoo amani), pierced','Onion, turmeric, saffron, salt'],steps:'Fry herbs in butter until very dark and almost crispy — this is the crucial flavor step. Brown meat with onion and turmeric. Add herbs, beans, dried limes and water. Simmer 2 hours low and slow. Serve over saffron rice with crispy tahdig.'}},
+  'Saudi Arabia':{fact:"Saudi Arabia produced one of the greatest World Cup upsets EVER by defeating Argentina 2-1 in 2022. Their perfectly executed high defensive line trap stunned Messi and company. A genuinely historic moment.",recipe:{name:'🍗 Kabsa (National Dish)',ing:['1 whole chicken, cut up','2 cups basmati rice','Kabsa spices: cardamom, cinnamon, cloves, black lime, cumin, coriander','Onion, garlic, tomatoes','Raisins, toasted almonds, rose water'],steps:'Brown chicken with aromatics. Add spices, tomatoes, and stock. Parboil rice separately. Layer rice over chicken in pot. Steam together on lowest heat 30 min (dum method). Fluff carefully, garnish with raisins and almonds.'}},
+  'Nigeria':{fact:"Nigeria's Super Eagles have appeared in 6 World Cups, consistently entertaining with attacking flair. Always at least reaching the round of 16. Their vibrant 1994 and 1998 squads were fan favorites worldwide.",recipe:{name:'🍲 Jollof Rice',ing:['3 cups parboiled long-grain rice','Blended: 4 tomatoes, 2 red peppers, 2 scotch bonnets, 1 onion','Tomato paste, chicken stock','Garlic, ginger, thyme, curry powder, bay leaves, bouillon'],steps:'Fry tomato paste in oil until darkened. Add blended tomato-pepper mixture. Fry 25-30 min until oil floats on top. Add stock and all seasonings. Add parboiled rice. Cook on very low heat — the bottom scorch (party jollof!) is the prize.'}},
+  'Scotland':{fact:"Scotland played in the very first international football match against England in 1872. They have qualified for 8 World Cups but never made it past the group stage. A proud football nation with a dramatically heartbreaking history.",recipe:{name:'🥃 Cranachan',ing:['300ml double cream','3 tbsp good Scottish single malt whisky','3 tbsp heather honey','100g pinhead oatmeal, toasted until golden','300g fresh raspberries'],steps:'Toast oatmeal in a dry pan until nutty and golden. Cool. Whip cream to soft peaks. Fold in whisky and honey to taste. Layer cream, raspberries, and oatmeal in glasses. Refrigerate 30 min. Top with extra raspberries. Slàinte Mhath!'}},
+  'Greece':{fact:"Greece's greatest footballing miracle was winning Euro 2004 as 80/1 outsiders — widely considered the biggest upset in tournament history. Otto Rehhagel's tactical masterpiece shocked the entire football world.",recipe:{name:'🥙 Gyros Pita',ing:['500g pork shoulder, sliced thin','Marinade: olive oil, lemon, oregano, garlic, paprika (overnight)','Pita bread','Tzatziki: Greek yogurt, grated cucumber (squeezed dry), dill, garlic','Tomato, onion, and — crucially — French fries inside'],steps:'Marinate pork overnight. Roast or grill at high heat until caramelized at edges. Warm pita. Spread tzatziki. Add meat, tomato, onion. Stuff fries right inside the pita. This is not optional. Wrap tightly in foil. Eat immediately.'}},
+  'Ukraine':{fact:"Ukraine reached the World Cup quarter-finals in their very first appearance as an independent nation in 2006. Andriy Shevchenko is their greatest player. They qualified despite the immense hardship of the 2022 Russian invasion.",recipe:{name:'🫕 Borscht',ing:['500g beef short ribs (for stock)','2-3 medium beets, grated','Cabbage, carrots, potatoes, onion, diced','3 tbsp tomato paste, 2 tbsp red wine vinegar','Garlic, bay leaf, fresh dill','Sour cream to serve'],steps:'Simmer ribs 2 hrs for stock. Add vegetables. Separately sauté grated beet with tomato paste and vinegar until deep ruby — this preserves the color, add last. Simmer 20 min. The color should be a jewel-toned crimson. Serve with sour cream and dill.'}},
+  'Chile':{fact:"Chile finished 3rd at their home 1962 World Cup and won back-to-back Copa América titles in 2015 and 2016 with their high-energy pressing style. La Roja play passionate, physical, intense football.",recipe:{name:'🌭 Completo Italiano',ing:['Hot dog sausage in a fresh soft bun','Mashed ripe avocado (palta)','Diced fresh tomato','Homemade mayonnaise — a LOT of it','(Colors = Italian flag: green, red, white)'],steps:"Boil or grill the sausage. Place in a fresh soft bun. Generously spread mashed avocado. Pile on diced fresh tomato. Then squeeze on a truly obscene amount of mayo. The mayo is not decoration. The mayo IS the point. Chile's iconic street food."}},
+  'Senegal':{fact:"Senegal's greatest World Cup was 2002 when they eliminated defending champions France in the first round and reached the quarter-finals. In 2022 they reached the round of 16. Sadio Mané is the nation's all-time greatest player.",recipe:{name:'🍚 Thiéboudienne (National Dish)',ing:['Whole fish (grouper or snapper), stuffed with herb paste','Broken parboiled rice (or regular)','Tomato paste, tamarind','Vegetables: cabbage, cassava, carrots, eggplant','Fermented dried fish (guedj), habanero pepper'],steps:"Senegal's beloved national dish. Make rich tomato-tamarind broth. Cook fish and vegetables in broth, remove. Cook rice in the flavored broth until all liquid is absorbed and a crust (the yakh — most prized!) forms on bottom. Reassemble on communal platter."}},
+  'Turkey':{fact:"Turkey's finest World Cup was 2002 when they finished 3rd place. Striker Hakan Şükür scored the fastest ever World Cup goal — just 11 seconds into the 3rd-place match against South Korea.",recipe:{name:'🥙 Doner Kebab',ing:['Lamb shoulder + beef mix, marinated overnight in yogurt, olive oil, onion juice, and spices','Flatbread or Turkish pide','Ezme (spicy tomato-herb salad)','Garlicky yogurt sauce','Pickled red cabbage'],steps:'Stack and compress marinated meat on a vertical spit. Roast until the outer layer is caramelized and crispy. Shave thin with a long knife. Serve in warm flatbread with ezme, yogurt sauce, and pickled cabbage. The yogurt is mandatory.'}},
+  'Egypt':{fact:"Egypt have won the Africa Cup of Nations a record 7 times. Mohamed Salah is their greatest modern player and one of the Premier League's all-time top scorers. The Pharaohs are always a fan-favorite.",recipe:{name:'🫘 Koshari',ing:['Equal parts: rice, brown lentils, elbow macaroni','Crispy fried onions (lots!)','Dakka sauce: tomatoes, garlic, vinegar, cumin, coriander, chili','Spiced chickpeas','Garlic-vinegar hot sauce on the side'],steps:"Cairo's legendary street food. Cook each element separately. Layer in a bowl: lentil-rice, then macaroni. Pour spiced tomato dakka sauce on top. Pile on crispy fried onions and spiced chickpeas. Add hot sauce to taste. Egypt's true comfort food."}}
 };
 
-const ALL_COUNTRIES = Object.values(WORLD_CUP_2026).flat();
+// ─── STATE ──────────────────────────────────────────────────────
+var teams = [];
+for(var i=0;i<9;i++) teams.push({id:i,name:'Team '+(i+1),mascot:MASCOTS[i],countries:[],points:0});
 
-const COUNTRY_FACTS = {
-  'USA': { fact: 'Home to over 330 million people. Americans invented the cheeseburger, jazz, and the internet. Soccer (football) is growing fast — the USMNT has qualified for 11 World Cups.', recipe: { name: '🍔 Classic Cheeseburger', ingredients: ['1 lb ground beef (80/20)', '4 slices American cheese', '4 brioche buns', 'Lettuce, tomato, onion', 'Special sauce: mayo + ketchup + pickle'], steps: 'Form patties, season with salt & pepper. Grill on high 3-4 min per side. Add cheese in last minute. Build your burger with all the toppings!' } },
-  'Mexico': { fact: 'Mexico has qualified for 17 World Cups. El Tri's biggest moment was the 1986 World Cup quarter-finals at home. Mexico is the birthplace of chocolate, avocados, and chili peppers.', recipe: { name: '🥑 Guacamole Auténtico', ingredients: ['3 ripe avocados', '1 lime, juiced', '½ white onion, diced', '2 serrano peppers, minced', 'Fresh cilantro', 'Salt to taste'], steps: 'Mash avocados coarsely. Fold in all ingredients. Season and serve immediately with tortilla chips. Do NOT use a food processor!' } },
-  'Canada': { fact: 'Canada qualified for the 2026 World Cup as co-host — and also qualified on merit in 2022 for the first time in 36 years! Home of hockey, maple syrup, and poutine.', recipe: { name: '🍟 Poutine', ingredients: ['4 large russet potatoes (fries)', '2 cups beef gravy', '2 cups cheese curds (fresh!)', 'Salt & pepper'], steps: 'Cut and fry potatoes until golden. Heat gravy until bubbling. Layer fries, add cheese curds, smother in hot gravy. The heat should slightly melt the curds. Serve immediately.' } },
-  'Brazil': { fact: 'Brazil is the most successful World Cup nation with 5 titles (1958, 1962, 1970, 1994, 2002). They\'re the only team to have participated in every World Cup. Home of samba, the Amazon, and the Christ the Redeemer statue.', recipe: { name: '🍖 Churrasco Brasileiro', ingredients: ['2 lbs picanha (top sirloin cap)', 'Coarse sea salt', 'Garlic (optional)', 'Chimichurri for serving'], steps: 'Score fat cap in a crosshatch. Fold meat into a C-shape on the skewer. Season generously with coarse salt only. Grill over charcoal rotating constantly, 20-30 min. Slice thin against the grain.' } },
-  'Argentina': { fact: 'Argentina won the 2022 World Cup in Qatar! Led by Lionel Messi, they defeated France in the most dramatic final in history. Argentina has won 3 World Cups total (1978, 1986, 2022).', recipe: { name: '🥩 Asado (Argentine BBQ)', ingredients: ['Short ribs, flank steak, chorizo, morcilla', 'Coarse salt', 'Chimichurri: parsley, garlic, oregano, olive oil, red wine vinegar'], steps: 'Build a wood fire and let coals develop. Salt meat generously. Grill slowly over moderate heat — asado is about patience. Serve with chimichurri and crusty bread.' } },
-  'Germany': { fact: 'Germany is one of the most successful World Cup nations with 4 titles (1954, 1974, 1990, 2014). Renowned for efficiency, teamwork, and pressing football. The Bundesliga is one of the world\'s top leagues.', recipe: { name: '🌭 Currywurst', ingredients: ['4 bratwurst sausages', '1 cup ketchup', '2 tbsp curry powder', '1 tsp paprika', 'Sliced onion'], steps: 'Grill or pan-fry bratwurst. Simmer ketchup with curry powder, paprika, and a splash of water. Slice sausage into rounds, pour curry sauce over. Serve with fries and a crusty roll.' } },
-  'France': { fact: 'France won the 2018 World Cup in Russia and were runners-up in 2022. They also won in 1998 on home soil. Les Bleus have one of the most talented squads in the world, known for their flair and technical play.', recipe: { name: '🥐 Croque Monsieur', ingredients: ['4 slices thick bread', '4 slices ham', 'Gruyère cheese, grated', 'Béchamel: butter, flour, milk, nutmeg', 'Dijon mustard'], steps: 'Make béchamel sauce. Spread mustard on bread, layer with ham and cheese. Top with béchamel and more cheese. Bake at 400°F for 15 min until golden and bubbling.' } },
-  'England': { fact: "England invented football in the 19th century and won their only World Cup in 1966 on home soil. The Premier League is the most-watched football league in the world. \"Football's coming home\" is their eternal battle cry.", recipe: { name: '🍟 Fish & Chips', ingredients: ['4 cod or haddock fillets', 'Beer batter: flour, cold beer, salt', '4 large potatoes for chips', 'Mushy peas, malt vinegar, tartar sauce'], steps: 'Peel and cut potatoes, soak in water 30min. Double-fry chips: first at 300°F, then 375°F. Make beer batter (lumpy is fine!). Dip fish, fry at 375°F until golden. Wrap in newspaper (optional).' } },
-  'Spain': { fact: 'Spain won the 2010 World Cup in South Africa — their first ever title. They pioneered the tiki-taka style of possession football. La Liga is home to Real Madrid and FC Barcelona, two of the world\'s biggest clubs.', recipe: { name: '🥘 Paella Valenciana', ingredients: ['2 cups bomba rice', 'Chicken thighs & rabbit (or seafood)', 'Saffron threads', 'Smoked paprika', 'Green beans, butter beans, tomato', 'Chicken stock'], steps: 'Bloom saffron in warm stock. Brown meat in paella pan. Add tomato and paprika, fry 2 min. Add rice, pour in stock. Cook on high then reduce — DO NOT STIR. Let socarrat (bottom crust) form.' } },
-  'Netherlands': { fact: 'The Netherlands reached three World Cup finals (1974, 1978, 2010) winning none — earning them the nickname "The Greatest Team Never to Win." They invented Total Football under Rinus Michels and Johan Cruyff.', recipe: { name: '🧀 Dutch Stroopwafels', ingredients: ['2 cups flour', '½ cup butter', '¼ cup sugar', '1 egg, 1 tsp yeast', 'Caramel: butter, syrup, brown sugar, cinnamon'], steps: 'Make dough, rest 1 hour. Press thin rounds in waffle iron. Split each waffle in half. Spread warm caramel filling between the layers. Best enjoyed placed over a hot cup of coffee to soften the caramel.' } },
-  'Portugal': { fact: 'Portugal won Euro 2016 but is still chasing their first World Cup. Led by Cristiano Ronaldo, they reached the 2006 World Cup semi-finals. Their record win? A staggering 9-0 against Kuwait in 1974.', recipe: { name: '🐟 Bacalhau à Brás', ingredients: ['500g salt cod (soaked 48hr)', '4 eggs', '1 onion, 2 garlic cloves', 'Shoestring potatoes (fried)', 'Black olives, parsley'], steps: 'Shred soaked cod. Sauté onion and garlic. Add cod and potatoes. Beat eggs, pour in and scramble gently until just set — keep it creamy! Garnish with olives and fresh parsley.' } },
-  'Italy': { fact: "Italy are four-time World Cup winners (1934, 1938, 1982, 2006). Known for their defensive mastery (Catenaccio) and football style called 'Calcio.' Shockingly missed 2018 and failed to qualify for 2022.", recipe: { name: '🍝 Cacio e Pepe', ingredients: ['400g spaghetti or tonnarelli', '200g Pecorino Romano, grated', '50g Parmigiano Reggiano, grated', '2 tsp black pepper (freshly cracked)', 'Pasta water (the secret!)'], steps: 'Cook pasta al dente. Toast pepper in dry pan. Add a ladle of pasta water to the pan. Off-heat, toss pasta with cheeses and pepper water, adding pasta water gradually to create a creamy sauce. No cream ever.' } },
-  'Japan': { fact: 'Japan has appeared in every World Cup since 1998, reaching the round of 16 multiple times. At the 2022 World Cup they famously beat Germany and Spain. Known for impeccable teamwork and sportsmanship.', recipe: { name: '🍣 Chicken Katsu Curry', ingredients: ['2 chicken breasts', 'Panko breadcrumbs, egg, flour', 'Japanese curry roux (S&B brand)', 'Onion, carrot, potato', 'Steamed Japanese rice'], steps: 'Pound chicken, coat in flour→egg→panko. Deep fry until golden (165°F internal). Simmer veggies in water, add curry roux. Serve katsu sliced over rice with curry poured alongside.' } },
-  'South Korea': { fact: 'South Korea\'s greatest World Cup achievement was reaching the semi-finals in 2002 when they co-hosted with Japan. Known as the Taeguk Warriors, they play an intense, high-energy pressing style.', recipe: { name: '🌶️ Bibimbap', ingredients: ['Steamed rice', 'Sautéed spinach, bean sprouts, carrots, zucchini', 'Fried egg (sunny side up)', 'Bulgogi beef', 'Gochujang (red pepper paste)', 'Sesame oil, sesame seeds'], steps: 'Prepare each veggie topping separately. Arrange over rice in a bowl beautifully. Top with egg and beef. Add gochujang to taste. Drizzle sesame oil. Mix everything together vigorously before eating!' } },
-  'Morocco': { fact: "Morocco made history at the 2022 World Cup by becoming the first African nation to reach the semi-finals! They beat Spain and Portugal along the way. Atlas Lions' fans brought incredible passion to every match.", recipe: { name: '🫕 Moroccan Lamb Tagine', ingredients: ['2 lbs lamb shoulder, cubed', 'Onion, garlic, fresh ginger', 'Ras el hanout spice blend', 'Preserved lemon, green olives', 'Dried apricots, chickpeas', 'Fresh cilantro and parsley'], steps: 'Brown lamb in tagine or Dutch oven. Sauté aromatics, add spices. Return meat with stock. Add preserved lemon and olives. Cook low and slow 2 hours. Add apricots last 30 min. Serve over couscous.' } },
-  'Croatia': { fact: "Croatia punched well above their weight reaching the 1998 World Cup semi-final (3rd place) and the 2022 World Cup semi-final. They're famous for their technical midfielders. Population of only 4 million!", recipe: { name: '🐟 Peka (Under the Bell)', ingredients: ['1 whole chicken or lamb pieces', 'Potatoes, zucchini, peppers, tomatoes', 'Garlic, rosemary, olive oil', 'White wine', 'Salt, pepper'], steps: 'Layer veggies in cast iron pan, place meat on top. Season generously, drizzle olive oil and wine. Cover with peka (domed lid). Bury under hot coals. Cook 1.5-2 hours undisturbed. The steam does everything.' } },
-  'Australia': { fact: "Australia (the Socceroos) had their greatest World Cup in 2022, reaching the quarter-finals for just the second time. Matildas women's team had a legendary 2023 Women's World Cup run on home soil.", recipe: { name: '🥧 Meat Pie', ingredients: ['Shortcrust pastry (base)', 'Puff pastry (lid)', 'Ground beef, onion', 'Beef stock, Worcestershire sauce, tomato paste', 'Flour (to thicken)', 'Tomato sauce (ketchup) for topping'], steps: 'Brown mince with onion. Add stock, tomato paste, Worcestershire. Thicken with flour. Cool completely. Line pie tin with shortcrust, fill, top with puff pastry. Brush with egg wash. Bake 200°C/390°F for 25 min.' } },
-  'Colombia': { fact: "Colombia's best World Cup was 1994 when they were pre-tournament favorites, but they went home in the group stage in tragic circumstances. James Rodríguez won the Golden Boot in 2014 with a stunning tournament.", recipe: { name: '🍲 Bandeja Paisa', ingredients: ['Red beans cooked with pork belly', 'White rice', 'Chicharrón (crispy pork belly)', 'Chorizo and ground beef', 'Fried egg, avocado, arepa, plantain'], steps: 'Cook beans low and slow with seasonings. Prepare each component separately. Arrange everything on a huge platter — this is a feast, not a meal. The arepa goes on the side. Judge your life choices.' } },
-  'Poland': { fact: 'Poland reached the World Cup quarter-finals in 1974 and 1982. Robert Lewandowski is their all-time top scorer and one of the best strikers of his generation. Their team nickname is "The White Eagles."', recipe: { name: '🥟 Pierogi Ruskie', ingredients: ['Dough: flour, egg, sour cream, water', 'Filling: mashed potato, farmer cheese, onion', 'Butter, caramelized onion for serving', 'Sour cream to top'], steps: 'Make dough, rest 30 min. Make filling with potato and cheese. Roll dough thin, cut circles. Fill and crimp edges tight. Boil in salted water until floating + 2 min. Finish in butter until golden.' } },
-  'Serbia': { fact: "Serbia has been independent since 2006 and has qualified for three World Cups. They're known for producing elite goalkeepers. Striker Aleksandar Mitrović is their all-time leading scorer.", recipe: { name: '🥩 Ćevapčići', ingredients: ['500g ground beef and pork mixed', 'Garlic, salt, pepper, baking soda', 'Flatbread (lepinja)', 'Ajvar (roasted red pepper spread)', 'Raw onion, sour cream'], steps: 'Mix meats with garlic, seasoning, and tiny amount of baking soda. Form into small finger-shaped logs. Refrigerate 1+ hour. Grill over high heat, turning often, 8-10 min. Serve in lepinja with ajvar.' } },
-  'Ecuador': { fact: "Ecuador has appeared in three World Cups (2002, 2006, 2022). They famously opened the 2022 World Cup against hosts Qatar and WON 2-0. Striker Enner Valencia scored 3 goals to become Ecuador's World Cup hero.", recipe: { name: '🍲 Seco de Pollo', ingredients: ['Chicken pieces', 'Beer (one cerveza!)', 'Ají amarillo or bell pepper', 'Tomato, onion, garlic, cumin', 'Cilantro, naranjilla juice', 'Rice and avocado to serve'], steps: 'Marinate chicken in beer and spices overnight. Brown chicken. Blend tomato, peppers, onion into refrito sauce. Simmer chicken in sauce 45 min adding cilantro at end. Serve over yellow rice with fried plantains.' } },
-  'Cameroon': { fact: "Cameroon are Africa's most successful World Cup team, reaching the quarter-finals in 1990 under Roger Milla. The Indomitable Lions' 1990 run captivated the world. They've appeared in 8 World Cups.", recipe: { name: '🍛 Ndolé', ingredients: ['Bitter leaf (or spinach as substitute)', 'Ground crayfish', 'Peanut paste', 'Beef and/or shrimp', 'Onion, garlic, ginger, Maggi cubes', 'Palm oil'], steps: "Blanch and squeeze bitter leaves multiple times to reduce bitterness. Brown meat with aromatics. Add peanut paste and crayfish. Fold in greens. Simmer 30 min until flavors meld. Cameroon's national pride." } },
-  'Belgium': { fact: "Belgium's 'golden generation' reached their peak when they finished 3rd at the 2018 World Cup. Players like De Bruyne, Lukaku, and Courtois made them one of the most talented squads ever assembled.", recipe: { name: '🍟 Belgian Frites with Andalouse Sauce', ingredients: ['Bintje or Russet potatoes', 'Beef fat (suet) or neutral oil for frying', 'Sauce Andalouse: mayo, tomato paste, red pepper, lemon'], steps: 'Cut potatoes thick (Belgian style!). First fry at 325°F for 5-7 min (blanching). Cool completely. Second fry at 375°F until golden. Salt immediately. Make Andalouse by mixing all sauce ingredients. Fries are the point.' } },
-  'Denmark': { fact: "Denmark's most famous moment is winning Euro '92 as a last-minute replacement — one of football's greatest fairy tales. They've had a strong 2022 World Cup qualifying run and are always tactically disciplined.", recipe: { name: '🥪 Smørrebrød', ingredients: ['Dense rye bread (rugbrød)', 'Butter (generously)', 'Smoked herring or pickled herring', 'Hard-boiled eggs', 'Radishes, capers, dill, red onion', 'Remoulade sauce'], steps: 'Butter rye bread heavily (butter is structural). Build open-faced sandwiches with herring and garnishes in a precise, overlapping pattern. Each smørrebrød should be its own visual work of art.' } },
-  'Uruguay': { fact: "Uruguay won the very FIRST World Cup in 1930, on home soil. They won again in 1950 with the legendary 'Maracanazo' — defeating Brazil in Rio de Janeiro's Maracanã stadium in what Brazil call 'the greatest tragedy.'", recipe: { name: '🍪 Alfajores', ingredients: ['Cornstarch (maicena), flour, baking powder', 'Butter, sugar, egg yolks, vanilla, lemon zest', 'Dulce de leche (thick)', 'Powdered sugar or coconut for rolling'], steps: 'Cream butter and sugar. Add yolks and vanilla. Mix in dry ingredients until sandy dough forms. Chill 1 hour. Roll 5mm thick, cut circles. Bake 300°F for 12 min (pale, not golden). Sandwich with thick dulce de leche.' } },
-  'Switzerland': { fact: "Switzerland has hosted a World Cup (1954) and regularly qualifies. They're known for their solid defensive organization. Swiss Army Knife football — reliable, versatile, always prepared.", recipe: { name: '🫕 Cheese Fondue', ingredients: ['200g Gruyère, grated', '200g Emmental, grated', '1 garlic clove', '300ml dry white wine', '1 tbsp cornstarch', 'Kirsch (cherry brandy)', 'Crusty bread for dipping'], steps: 'Rub pot with garlic. Heat wine to simmer. Gradually add cheese in handfuls, stirring in a figure-8. Mix cornstarch with kirsch, stir in. Season with nutmeg and pepper. Keep warm. Never let it stop moving.' } },
-  'Iran': { fact: "Iran are Asia's most qualified World Cup team with 6 appearances. They stunned England 6-2 at the 2022 World Cup opener. Football is deeply embedded in Persian culture.", recipe: { name: '🍚 Ghormeh Sabzi', ingredients: ['Lamb or beef, cubed', 'Fresh herbs: fenugreek, parsley, leek, spinach', 'Red kidney beans', 'Dried limes (limoo amani)', 'Onion, turmeric, saffron'], steps: 'Fry herbs in butter until very dark and fragrant (key step). Brown meat with onion and turmeric. Add herbs, beans, and pierced dried limes. Add water and simmer 2 hours. Serve over saffron rice (tahdig).' } },
-  'Saudi Arabia': { fact: "Saudi Arabia shocked the world at the 2022 World Cup by defeating Argentina 2-1. Their defensive high-line trap worked to perfection. It's considered one of the greatest upsets in World Cup history.", recipe: { name: '🍗 Kabsa', ingredients: ['Whole chicken, cut up', 'Basmati rice', 'Kabsa spice mix: cardamom, cinnamon, cloves, black lime, cumin', 'Tomatoes, onion, garlic', 'Raisins, toasted almonds', 'Rose water'], steps: 'Brown chicken with aromatics. Add spices, tomatoes, stock. Parboil rice separately. Layer rice over chicken. Steam on low heat 30 min (dum method). Fluff and garnish with raisins and almonds.' } },
-  'Nigeria': { fact: "Nigeria's Super Eagles have appeared in 6 World Cups, always reaching at least the round of 16. Their vibrant playing style and passionate fans make them Africa's most glamorous World Cup team.", recipe: { name: '🍲 Jollof Rice', ingredients: ['Long grain parboiled rice', 'Blended tomatoes, red peppers, scotch bonnets', 'Onion, garlic, ginger', 'Chicken stock', 'Bay leaves, thyme, curry powder, bouillon', 'Tomato paste'], steps: 'Fry tomato paste in oil until deep red. Add blended tomato-pepper mix. Fry 20-30 min until oil floats. Add stock and seasonings. Add parboiled rice. Steam on lowest heat — the bottom scorch ("party jollof") is the prize.' } },
-  'Scotland': { fact: "Scotland was the first international football team ever, playing England in the world's first international match in 1872. They qualified for 8 World Cups but never made it past the group stage — a proud footballing nation with heartbreaking history.", recipe: { name: '🥃 Cranachan', ingredients: ['300ml double cream', '3 tbsp whisky (good Scottish single malt!)', '3 tbsp heather honey', '100g pinhead oatmeal (toasted)', '300g fresh raspberries'], steps: 'Toast oatmeal until golden. Whip cream to soft peaks. Fold in whisky and honey. Layer cream mixture with raspberries and oatmeal in glasses. Refrigerate 30 min. Top with extra raspberries. Slàinte Mhath!' } },
-  'Greece': { fact: "Greece's greatest football moment was winning Euro 2004 as 80/1 outsiders — one of the biggest upsets in tournament history. Otto Rehhagel's tactical masterclass stunned the football world.", recipe: { name: '🥙 Gyros Pita', ingredients: ['Pork shoulder, sliced thin', 'Gyros marinade: olive oil, lemon, oregano, garlic, paprika', 'Pita bread', 'Tzatziki: Greek yogurt, cucumber, dill, garlic', 'Tomato, onion, fries (inside the pita!)'], steps: 'Marinate pork overnight. Cook on vertical spit or roast at high heat. Slice thin. Warm pita. Spread tzatziki, add meat, tomato, onion, and — yes — stuff fries right in there. Wrap tightly and eat immediately.' } },
-  'Ukraine': { fact: "Ukraine reached the World Cup quarter-finals in 2006, their best showing. They qualified for their first World Cup in 2006 as an independent nation. Andriy Shevchenko is their greatest ever player.", recipe: { name: '🫕 Borscht', ingredients: ['Beets (2-3 medium), grated', 'Cabbage, carrots, potatoes, onion', 'Beef short ribs for stock', 'Tomato paste, red wine vinegar', 'Garlic, bay leaf, dill', 'Sour cream to serve'], steps: 'Make beef broth with ribs 2 hours. Add diced vegetables. Sauté grated beet with tomato paste and vinegar separately (preserves the color!). Add to soup last 20 min. The color should be a deep jewel-toned red. Top with sour cream and dill.' } },
-  'Chile': { fact: "Chile finished 3rd at the 1962 World Cup held on home soil. More recently they won back-to-back Copa América titles in 2015 and 2016 with their high-press 'la roja' style.", recipe: { name: '🥩 Completo Italiano', ingredients: ['Hot dog sausage in fresh bun', 'Avocado mashed (palta)', 'Diced fresh tomato', 'Homemade mayonnaise (lots)', '(The colors = Italian flag)'], steps: "This is Chile's iconic hot dog. Boil the sausage, place in a soft fresh bun. Spread smashed avocado generously. Pile on diced tomato. Add a VERY generous squeeze of mayo. The mayo is not optional. It is the point." } },
-  'Senegal': { fact: "Senegal's greatest moment was reaching the World Cup quarter-finals in 2002, eliminating defending champions France. In 2022 they reached the round of 16. Sadio Mané is their greatest ever player.", recipe: { name: '🍚 Thieboudienne', ingredients: ['Whole fish (grouper or snapper)', 'Broken rice (or regular)', 'Tomato paste, tamarind', 'Vegetables: cabbage, carrots, cassava, eggplant, yuca', 'Fermented shellfish (guedj)', 'Habanero pepper'], steps: "Senegal's national dish. Make a rich tomato-tamarind broth. Cook vegetables and fish in broth. Remove. Cook rice in the flavored broth until all liquid is absorbed and a crust forms on the bottom (the yakh — most prized part). Assemble and serve on one communal platter." } },
-  'Turkey': { fact: "Turkey's best result was 3rd place at the 2002 World Cup, defeating co-host South Korea in the third-place match. Striker Hakan Şükür scored the fastest ever World Cup goal — just 11 seconds!", recipe: { name: '🥙 Doner Kebab', ingredients: ['Lamb shoulder + beef mix, sliced thin', 'Marinade: yogurt, olive oil, onion juice, spices', 'Flatbread or Turkish pide', 'Ezme (spicy tomato salad)', 'Yogurt sauce with garlic', 'Pickled cabbage'], steps: 'Marinate meat overnight. Stack and compress meat on vertical spit. Roast until outer layer is caramelized and crispy. Shave with long knife. Serve in warm flatbread with all the garnishes. The yogurt is mandatory.' } },
-  'Egypt': { fact: "Egypt have won the Africa Cup of Nations a record 7 times and were the dominant African force for decades. Their World Cup appearances include a famous 1990 run. Mohamed Salah is their greatest modern player.", recipe: { name: '🫘 Koshari', ingredients: ['Rice, lentils, macaroni (equal parts)', 'Crispy fried onions', 'Tomato-vinegar-spice sauce (dakka)', 'Spiced chickpeas', 'Cumin, coriander, garlic'], steps: "Cairo's street food king. Cook each starch separately. Layer in bowl: lentil-rice mix, macaroni, more rice. Pour spiced tomato sauce on top. Pile on crispy onions and chickpeas. Add chili sauce to taste. This is Egypt's true comfort food." } },
-};
+var smack=[
+  {tid:0,text:"We're coming for that trophy! 🏆",time:'Earlier'},
+  {tid:1,text:"Dream on. Our countries are GOAT tier. 🐐",time:'Earlier'}
+];
+var curPage='setup';
+var editPts=false;
+var factTabs={};
+var factsQ='';
+var pickerTeam=-1;
+var pickerQ='';
 
-// =============================================
-// STATE
-// =============================================
+// try load
+try{
+  var sv=localStorage.getItem('wcp26');
+  if(sv){var p=JSON.parse(sv);teams=p.t||teams;smack=p.s||smack;}
+}catch(e){}
 
-let state = {
-  page: 'setup',
-  teams: Array.from({length: 9}, (_, i) => ({
-    id: i,
-    name: `Team ${i + 1}`,
-    mascot: MASCOTS[i % MASCOTS.length],
-    countries: [],
-    points: 0,
-  })),
-  smackTalk: [
-    { teamId: 0, text: "We're coming for that trophy! 🏆", time: '2 min ago' },
-    { teamId: 1, text: "Dream on. Our countries are the GOAT tier. 🐐", time: '1 min ago' },
-  ],
-  pickerOpen: null, // { teamId }
-  factTab: {}, // countryName -> 'fact' | 'recipe'
-  factsFilter: '',
-  editingPoints: false,
-  draftPoints: {},
-};
-
-// Load from localStorage (safe - won't crash if blocked)
-function save() {
-  try {
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('wc2026pool', JSON.stringify({ teams: state.teams, smackTalk: state.smackTalk }));
-    }
-  } catch(e) {}
+function saveState(){
+  try{localStorage.setItem('wcp26',JSON.stringify({t:teams,s:smack}));}catch(e){}
 }
 
-try {
-  if (typeof localStorage !== 'undefined') {
-    const saved = localStorage.getItem('wc2026pool');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      state.teams = parsed.teams || state.teams;
-      state.smackTalk = parsed.smackTalk || state.smackTalk;
-    }
-  }
-} catch(e) {}
-
-// =============================================
-// CONFETTI
-// =============================================
-function launchConfetti(count = 80) {
-  const colors = ['#f5c518','#00a550','#e63946','#fff','#0096ff','#ff6b35','#8338ec'];
-  const container = document.getElementById('confetti-container');
-  for (let i = 0; i < count; i++) {
-    const el = document.createElement('div');
-    el.className = 'confetti-piece';
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const size = 8 + Math.random() * 10;
-    el.style.cssText = `
-      left: ${Math.random() * 100}vw;
-      width: ${size}px; height: ${size * (0.4 + Math.random() * 0.8)}px;
-      background: ${color};
-      transform: rotate(${Math.random() * 360}deg);
-      animation-duration: ${1.5 + Math.random() * 2}s;
-      animation-delay: ${Math.random() * 0.5}s;
-    `;
-    container.appendChild(el);
-    el.addEventListener('animationend', () => el.remove());
+// ─── UTILS ──────────────────────────────────────────────────────
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function takenSet(excludeId){
+  var s=new Set();
+  teams.forEach(function(t){if(t.id!==excludeId)t.countries.forEach(function(c){s.add(c.n);});});
+  return s;
+}
+function confetti(n){
+  n=n||80;
+  var cols=['#f5c518','#00a550','#e63946','#fff','#0096ff','#ff6b35','#8338ec'];
+  var host=document.getElementById('confetti-host');
+  for(var i=0;i<n;i++){
+    (function(){
+      var el=document.createElement('div');
+      el.className='cp';
+      var sz=8+Math.random()*10;
+      el.style.cssText='left:'+Math.random()*100+'vw;width:'+sz+'px;height:'+(sz*(0.4+Math.random()*0.8))+'px;background:'+cols[Math.floor(Math.random()*cols.length)]+';transform:rotate('+Math.random()*360+'deg);animation-duration:'+(1.5+Math.random()*2)+'s;animation-delay:'+(Math.random()*0.5)+'s;';
+      host.appendChild(el);
+      el.addEventListener('animationend',function(){el.remove();});
+    })();
   }
 }
 
-// =============================================
-// RENDER ENGINE
-// =============================================
-function render() {
-  document.querySelectorAll('nav button').forEach(b => {
-    b.classList.toggle('active', b.dataset.page === state.page);
-  });
-  const main = document.getElementById('main-content');
-  main.innerHTML = '';
-  if (state.page === 'setup') renderSetup(main);
-  else if (state.page === 'standings') renderStandings(main);
-  else if (state.page === 'facts') renderFacts(main);
-  else if (state.page === 'smack') renderSmack(main);
+// ─── NAV ────────────────────────────────────────────────────────
+function goPage(p){
+  curPage=p;
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.toggle('active',b.dataset.p===p);});
+  document.querySelectorAll('.page').forEach(function(d){d.classList.remove('active');});
+  document.getElementById('pg-'+p).classList.add('active');
+  renderPage(p);
+}
+document.getElementById('nav').addEventListener('click',function(e){
+  var b=e.target.closest('.nav-btn');
+  if(b) goPage(b.dataset.p);
+});
 
-  if (state.pickerOpen !== null) renderPicker();
+// ─── RENDER DISPATCH ────────────────────────────────────────────
+function renderPage(p){
+  if(p==='setup') renderSetup();
+  else if(p==='standings') renderStandings();
+  else if(p==='facts') renderFacts();
+  else if(p==='smack') renderSmack();
 }
 
-// =============================================
-// SETUP PAGE
-// =============================================
-function renderSetup(container) {
-  const div = document.createElement('div');
-  div.innerHTML = `
-    <div class="section-title">Team Setup</div>
-    <div class="section-sub">9 teams · 3 countries each · Pick your squad!</div>
-    <div class="setup-grid" id="setup-grid"></div>
-  `;
-  container.appendChild(div);
-  const grid = div.querySelector('#setup-grid');
-  state.teams.forEach(team => {
-    const card = document.createElement('div');
-    card.className = `team-card ${team.countries.length === 3 ? 'filled' : ''}`;
-    card.innerHTML = `
-      <div class="team-card-header">
-        <span class="team-mascot" id="mascot-${team.id}">${team.mascot}</span>
-        <input class="team-name-input" value="${team.name}" placeholder="Team name" maxlength="20" data-team="${team.id}" />
-      </div>
-      <div class="mascot-picker">
-        ${MASCOTS.map(m => `<button class="mascot-btn ${m === team.mascot ? 'selected' : ''}" data-mascot="${m}" data-team="${team.id}">${m}</button>`).join('')}
-      </div>
-      <div class="country-slots">
-        ${[0,1,2].map(slot => {
-          const c = team.countries[slot];
-          return `<div class="country-slot">
-            <span class="slot-flag">${c ? c.flag : '🌐'}</span>
-            <span class="slot-name ${c ? 'picked' : ''}">${c ? c.name : `Pick country ${slot+1}`}</span>
-            ${c ? `<button class="slot-remove" data-team="${team.id}" data-slot="${slot}">✕</button>` : ''}
-          </div>`;
-        }).join('')}
-      </div>
-      <button class="country-picker-btn" data-team="${team.id}" ${team.countries.length >= 3 ? 'disabled' : ''}>
-        ${team.countries.length >= 3 ? '✅ Ready!' : `+ Pick Country (${3 - team.countries.length} left)`}
-      </button>
-    `;
-    grid.appendChild(card);
+// ─── SETUP ──────────────────────────────────────────────────────
+function renderSetup(){
+  var el=document.getElementById('pg-setup');
+  var html='<div class="stitle">Team Setup</div><div class="ssub">9 teams · 3 countries each · Pick your squad!</div><div class="setup-grid">';
+  teams.forEach(function(t){
+    html+='<div class="team-card'+(t.countries.length===3?' full':'')+'"><div class="tc-head">';
+    html+='<span class="tc-mascot">'+t.mascot+'</span>';
+    html+='<input class="tc-name" value="'+esc(t.name)+'" placeholder="Team name" maxlength="20" data-tid="'+t.id+'">';
+    html+='</div><div class="mascot-row">';
+    MASCOTS.forEach(function(m){html+='<button class="mb'+(m===t.mascot?' sel':'')+'" data-tid="'+t.id+'" data-m="'+m+'">'+m+'</button>';});
+    html+='</div><div class="slots">';
+    for(var s=0;s<3;s++){
+      var c=t.countries[s];
+      html+='<div class="slot"><span class="slot-flag">'+(c?c.f:'🌐')+'</span>';
+      html+='<span class="slot-name'+(c?' on':'')+'">'+esc(c?c.n:'Pick country '+(s+1))+'</span>';
+      if(c) html+='<button class="slot-rm" data-tid="'+t.id+'" data-si="'+s+'">✕</button>';
+      html+='</div>';
+    }
+    html+='</div>';
+    html+='<button class="pick-btn" data-tid="'+t.id+'" '+(t.countries.length>=3?'disabled':'')+'>'+(t.countries.length>=3?'✅ Ready!':'+ Pick Country ('+(3-t.countries.length)+' left)')+'</button>';
+    html+='</div>';
   });
+  html+='</div>';
+  el.innerHTML=html;
 
-  // Events
-  grid.querySelectorAll('.team-name-input').forEach(input => {
-    input.addEventListener('input', e => {
-      state.teams[+e.target.dataset.team].name = e.target.value;
-      save();
-    });
+  el.querySelectorAll('.tc-name').forEach(function(inp){
+    inp.addEventListener('input',function(){teams[+this.dataset.tid].name=this.value;saveState();});
   });
-  grid.querySelectorAll('.mascot-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const teamId = +e.target.dataset.team;
-      state.teams[teamId].mascot = e.target.dataset.mascot;
-      save(); render();
-    });
+  el.querySelectorAll('.mb').forEach(function(b){
+    b.addEventListener('click',function(){teams[+this.dataset.tid].mascot=this.dataset.m;saveState();renderSetup();});
   });
-  grid.querySelectorAll('.slot-remove').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const teamId = +e.target.dataset.team;
-      const slot = +e.target.dataset.slot;
-      state.teams[teamId].countries.splice(slot, 1);
-      save(); render();
-    });
+  el.querySelectorAll('.slot-rm').forEach(function(b){
+    b.addEventListener('click',function(){teams[+this.dataset.tid].countries.splice(+this.dataset.si,1);saveState();renderSetup();});
   });
-  grid.querySelectorAll('.country-picker-btn').forEach(btn => {
-    btn.addEventListener('click', e => {
-      const teamId = +e.target.dataset.team;
-      if (state.teams[teamId].countries.length < 3) {
-        state.pickerOpen = teamId;
-        render();
-      }
+  el.querySelectorAll('.pick-btn').forEach(function(b){
+    b.addEventListener('click',function(){
+      if(!this.disabled){pickerTeam=+this.dataset.tid;pickerQ='';openPicker();}
     });
   });
 }
 
-// =============================================
-// COUNTRY PICKER MODAL
-// =============================================
-function renderPicker() {
-  const teamId = state.pickerOpen;
-  const takenNames = new Set(state.teams.flatMap(t => t.countries.map(c => c.name)));
+// ─── PICKER ─────────────────────────────────────────────────────
+function openPicker(){
+  var taken=takenSet(pickerTeam);
+  var tname=teams[pickerTeam].name;
 
-  const overlay = document.createElement('div');
-  overlay.className = 'modal-overlay';
-  overlay.id = 'picker-overlay';
-
-  let searchVal = '';
-
-  function buildPicker() {
-    const filtered = (name) => name.toLowerCase().includes(searchVal.toLowerCase());
-    let html = `<div class="modal">
-      <h3>🌍 Pick a Country for ${state.teams[teamId].name}</h3>
-      <input class="modal-search" placeholder="Search countries..." id="country-search" value="${searchVal}" />`;
-    for (const [group, countries] of Object.entries(WORLD_CUP_2026)) {
-      const visible = countries.filter(c => filtered(c.name));
-      if (visible.length === 0) continue;
-      html += `<div class="group-label">${group}</div><div class="countries-grid">`;
-      visible.forEach(c => {
-        const taken = takenNames.has(c.name) && !state.teams[teamId].countries.find(x => x.name === c.name);
-        html += `<button class="country-btn ${taken ? 'taken' : ''}" data-name="${c.name}" data-flag="${c.flag}" ${taken ? 'disabled' : ''}>
-          ${c.flag} ${c.name}
-        </button>`;
+  function build(){
+    var q=pickerQ.toLowerCase();
+    var html='<div class="modal"><h3>🌍 Pick for '+esc(tname)+'</h3>';
+    html+='<input class="msearch" id="msearch" placeholder="Search countries..." value="'+esc(pickerQ)+'">';
+    Object.keys(GROUPS).forEach(function(g){
+      var vis=GROUPS[g].filter(function(c){return !q||c.n.toLowerCase().includes(q);});
+      if(!vis.length) return;
+      html+='<div class="glabel">'+g+'</div><div class="cgrid">';
+      vis.forEach(function(c){
+        var t=taken.has(c.n);
+        html+='<button class="cbtn'+(t?' taken':'')+'" data-n="'+esc(c.n)+'" data-f="'+c.f+'"'+(t?' disabled':'')+'>'+c.f+' '+esc(c.n)+'</button>';
       });
-      html += '</div>';
-    }
-    html += `<button class="modal-close" id="modal-close-btn">Close</button></div>`;
+      html+='</div>';
+    });
+    html+='<button class="mclose" id="mclose">Close</button></div>';
     return html;
   }
 
-  overlay.innerHTML = buildPicker();
-  document.body.appendChild(overlay);
+  var ov=document.createElement('div');
+  ov.className='overlay';
+  ov.id='picker-overlay';
+  ov.innerHTML=build();
+  document.body.appendChild(ov);
 
-  function attachEvents() {
-    overlay.querySelector('#country-search').addEventListener('input', e => {
-      searchVal = e.target.value;
-      overlay.innerHTML = buildPicker();
-      attachEvents();
-      overlay.querySelector('#country-search').focus();
-    });
-    overlay.querySelectorAll('.country-btn:not(.taken)').forEach(btn => {
-      btn.addEventListener('click', e => {
-        const name = e.currentTarget.dataset.name;
-        const flag = e.currentTarget.dataset.flag;
-        state.teams[teamId].countries.push({ name, flag });
-        save();
-        if (state.teams[teamId].countries.length >= 3) state.pickerOpen = null;
-        overlay.remove();
-        render();
-      });
-    });
-    document.getElementById('modal-close-btn').addEventListener('click', () => {
-      state.pickerOpen = null;
-      overlay.remove();
-      render();
-    });
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) {
-        state.pickerOpen = null;
-        overlay.remove();
-        render();
-      }
-    });
-  }
-  attachEvents();
-}
-
-// =============================================
-// STANDINGS PAGE
-// =============================================
-function renderStandings(container) {
-  const sorted = [...state.teams].sort((a, b) => b.points - a.points);
-
-  const allPicked = state.teams.every(t => t.countries.length === 3);
-
-  const div = document.createElement('div');
-  div.innerHTML = `
-    <div class="section-title">🏆 Standings</div>
-    <div class="section-sub">Update points as the tournament progresses</div>
-    ${!allPicked ? `<div style="background:rgba(245,197,24,0.1);border:1px solid var(--gold);border-radius:10px;padding:14px 20px;margin-bottom:24px;color:var(--gold);font-size:0.92rem;">
-      ⚠️ Not all teams have picked 3 countries yet. Head to Team Setup to finish!
-    </div>` : ''}
-    <div class="standings-actions">
-      <button class="btn btn-outline" id="edit-pts-btn">${state.editingPoints ? '💾 Save Points' : '✏️ Edit Points'}</button>
-      <button class="btn btn-primary" id="confetti-btn">🎉 Celebrate!</button>
-    </div>
-    <div class="score-editor">
-      <div class="score-editor-header">Leaderboard</div>
-      <table class="standings-table">
-        <thead>
-          <tr>
-            <th style="width:50px">#</th>
-            <th>Team</th>
-            <th style="text-align:right">Points</th>
-          </tr>
-        </thead>
-        <tbody id="standings-body"></tbody>
-      </table>
-    </div>
-  `;
-  container.appendChild(div);
-
-  const tbody = div.querySelector('#standings-body');
-  sorted.forEach((team, i) => {
-    const tr = document.createElement('tr');
-    const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-    tr.innerHTML = `
-      <td><div class="rank-badge ${rankClass}">${i + 1}</div></td>
-      <td>
-        <div style="display:flex;align-items:center;gap:10px">
-          <span style="font-size:1.8rem">${team.mascot}</span>
-          <div>
-            <div class="team-row-name">${team.name}</div>
-            <div class="team-countries-mini">
-              ${team.countries.map(c => `<span class="country-pill">${c.flag} ${c.name}</span>`).join('')}
-              ${team.countries.length === 0 ? '<span class="country-pill" style="color:var(--red)">No countries yet</span>' : ''}
-            </div>
-          </div>
-        </div>
-      </td>
-      <td class="pts-cell">
-        ${state.editingPoints
-          ? `<input class="pts-input" type="number" min="0" value="${team.points}" data-team="${team.id}" />`
-          : team.points + ' pts'}
-      </td>
-    `;
-    tbody.appendChild(tr);
-  });
-
-  if (state.editingPoints) {
-    tbody.querySelectorAll('.pts-input').forEach(input => {
-      input.addEventListener('change', e => {
-        const teamId = +e.target.dataset.team;
-        state.teams[teamId].points = +e.target.value || 0;
-        save();
-      });
-    });
-  }
-
-  div.querySelector('#edit-pts-btn').addEventListener('click', () => {
-    state.editingPoints = !state.editingPoints;
-    render();
-  });
-  div.querySelector('#confetti-btn').addEventListener('click', () => {
-    launchConfetti(120);
-  });
-}
-
-// =============================================
-// FACTS PAGE
-// =============================================
-function renderFacts(container) {
-  const div = document.createElement('div');
-  div.innerHTML = `
-    <div class="section-title">🌎 Country Facts & Recipes</div>
-    <div class="section-sub">Learn about all 32 nations competing in 2026</div>
-    <div class="filter-bar">
-      <input class="filter-input" placeholder="🔍 Search countries..." id="facts-search" value="${state.factsFilter}" />
-    </div>
-    <div class="facts-grid" id="facts-grid"></div>
-  `;
-  container.appendChild(div);
-
-  div.querySelector('#facts-search').addEventListener('input', e => {
-    state.factsFilter = e.target.value;
-    renderFactsGrid(div.querySelector('#facts-grid'));
-  });
-
-  renderFactsGrid(div.querySelector('#facts-grid'));
-}
-
-function renderFactsGrid(grid) {
-  grid.innerHTML = '';
-  const filter = state.factsFilter.toLowerCase();
-  ALL_COUNTRIES.forEach(country => {
-    if (filter && !country.name.toLowerCase().includes(filter)) return;
-    const data = COUNTRY_FACTS[country.name];
-    if (!data) return;
-    const tab = state.factTab[country.name] || 'fact';
-    const card = document.createElement('div');
-    card.className = 'fact-card';
-    card.innerHTML = `
-      <div class="fact-card-header">
-        <span class="fact-flag">${country.flag}</span>
-        <span class="fact-country-name">${country.name}</span>
-      </div>
-      <div class="fact-tabs">
-        <button class="fact-tab ${tab === 'fact' ? 'active' : ''}" data-country="${country.name}" data-tab="fact">⚽ Football</button>
-        <button class="fact-tab ${tab === 'recipe' ? 'active' : ''}" data-country="${country.name}" data-tab="recipe">🍽️ Recipe</button>
-      </div>
-      <div class="fact-body" id="fact-body-${country.name}">
-        ${tab === 'fact'
-          ? `<p>${data.fact}</p>`
-          : `<div class="recipe-title">${data.recipe.name}</div>
-             <ul class="ingredient-list">${data.recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
-             <p style="color:var(--gray);font-size:0.87rem;margin-top:8px;line-height:1.6">${data.recipe.steps}</p>`
-        }
-      </div>
-    `;
-    grid.appendChild(card);
-    card.querySelectorAll('.fact-tab').forEach(btn => {
-      btn.addEventListener('click', e => {
-        state.factTab[e.target.dataset.country] = e.target.dataset.tab;
-        renderFactsGrid(grid);
-      });
-    });
-  });
-
-  if (grid.children.length === 0) {
-    grid.innerHTML = `<div class="empty-state"><div class="icon">🔍</div><h3>No countries found</h3><p>Try a different search term</p></div>`;
-  }
-}
-
-// =============================================
-// SMACK TALK PAGE
-// =============================================
-function renderSmack(container) {
-  const div = document.createElement('div');
-  div.innerHTML = `
-    <div class="section-title">💬 Smack Talk Board</div>
-    <div class="section-sub">Family trash talk · Keep it (mostly) friendly</div>
-    <div class="talk-feed" id="talk-feed"></div>
-    <div class="card" style="margin-bottom:20px">
-      <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;letter-spacing:2px;color:var(--gray);text-transform:uppercase;margin-bottom:14px">Drop your message</div>
-      <div class="talk-composer">
-        <select class="talk-select" id="talk-team-select">
-          ${state.teams.map(t => `<option value="${t.id}">${t.mascot} ${t.name}</option>`).join('')}
-        </select>
-        <input class="talk-input" id="talk-input" placeholder="Talk your smack..." maxlength="140" />
-        <button class="btn btn-green" id="talk-send">Send 🔥</button>
-      </div>
-    </div>
-    <div style="text-align:center">
-      <button class="btn btn-outline" id="clear-talk" style="font-size:0.8rem;padding:6px 16px">🗑️ Clear All</button>
-    </div>
-  `;
-  container.appendChild(div);
-
-  const feed = div.querySelector('#talk-feed');
-  if (state.smackTalk.length === 0) {
-    feed.innerHTML = `<div class="empty-state"><div class="icon">💬</div><h3>Silence...</h3><p>Be the first to talk smack</p></div>`;
-  } else {
-    [...state.smackTalk].reverse().forEach(msg => {
-      const team = state.teams.find(t => t.id === msg.teamId) || state.teams[0];
-      const bubble = document.createElement('div');
-      bubble.className = 'talk-bubble';
-      bubble.innerHTML = `
-        <div class="talk-header">
-          <span class="talk-mascot">${team.mascot}</span>
-          <span class="talk-team">${team.name}</span>
-          <span class="talk-time">${msg.time}</span>
-        </div>
-        <div class="talk-text">${escapeHtml(msg.text)}</div>
-      `;
-      feed.appendChild(bubble);
-    });
-  }
-
-  div.querySelector('#talk-send').addEventListener('click', () => {
-    const input = div.querySelector('#talk-input');
-    const teamId = +div.querySelector('#talk-team-select').value;
-    const text = input.value.trim();
-    if (!text) return;
-    state.smackTalk.push({ teamId, text, time: 'Just now' });
-    save();
-    input.value = '';
-    render();
-  });
-  div.querySelector('#talk-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') div.querySelector('#talk-send').click();
-  });
-  div.querySelector('#clear-talk').addEventListener('click', () => {
-    if (confirm('Clear all smack talk?')) {
-      state.smackTalk = [];
-      save(); render();
+  function attach(){
+    var ms=document.getElementById('msearch');
+    if(ms){
+      ms.focus();ms.setSelectionRange(ms.value.length,ms.value.length);
+      ms.addEventListener('input',function(){pickerQ=this.value;ov.innerHTML=build();attach();});
     }
+    ov.querySelectorAll('.cbtn:not(.taken)').forEach(function(b){
+      b.addEventListener('click',function(){
+        teams[pickerTeam].countries.push({n:this.dataset.n,f:this.dataset.f});
+        saveState();ov.remove();
+        if(teams[pickerTeam].countries.length<3) openPicker();
+        else renderSetup();
+      });
+    });
+    var mc=document.getElementById('mclose');
+    if(mc) mc.addEventListener('click',function(){ov.remove();renderSetup();});
+    ov.addEventListener('click',function(e){if(e.target===ov){ov.remove();renderSetup();}});
+  }
+  attach();
+}
+
+// ─── STANDINGS ──────────────────────────────────────────────────
+function renderStandings(){
+  var el=document.getElementById('pg-standings');
+  var sorted=teams.slice().sort(function(a,b){return b.points-a.points;});
+  var allPicked=teams.every(function(t){return t.countries.length===3;});
+
+  var html='<div class="stitle">🏆 Standings</div><div class="ssub">Update points as the tournament progresses</div>';
+  if(!allPicked) html+='<div style="background:rgba(245,197,24,.1);border:1px solid var(--gold);border-radius:10px;padding:13px 18px;margin-bottom:20px;color:var(--gold);font-size:.9rem;">⚠️ Not all teams have picked 3 countries yet!</div>';
+  html+='<div class="std-actions"><button class="btn btn-outline" id="editptsBtn">'+(editPts?'💾 Save Points':'✏️ Edit Points')+'</button><button class="btn btn-gold" id="celebBtn">🎉 Celebrate!</button></div>';
+  html+='<div class="card"><table><thead><tr><th style="width:50px">#</th><th>Team</th><th style="text-align:right">Points</th></tr></thead><tbody>';
+  sorted.forEach(function(t,i){
+    var rc=i===0?'r1':i===1?'r2':i===2?'r3':'';
+    html+='<tr><td><div class="rank '+rc+'">'+(i+1)+'</div></td><td>';
+    html+='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:1.7rem">'+t.mascot+'</span><div>';
+    html+='<div class="tname">'+esc(t.name)+'</div><div class="cpills">';
+    t.countries.forEach(function(c){html+='<span class="pill">'+c.f+' '+esc(c.n)+'</span>';});
+    if(!t.countries.length) html+='<span class="pill" style="color:var(--red)">No countries</span>';
+    html+='</div></div></div></td>';
+    if(editPts){
+      html+='<td style="text-align:right"><input class="pts-in" type="number" min="0" value="'+t.points+'" data-tid="'+t.id+'"></td>';
+    } else {
+      html+='<td class="pts">'+t.points+' pts</td>';
+    }
+    html+='</tr>';
+  });
+  html+='</tbody></table></div>';
+  el.innerHTML=html;
+
+  document.getElementById('editptsBtn').addEventListener('click',function(){
+    if(editPts){
+      el.querySelectorAll('.pts-in').forEach(function(inp){teams[+inp.dataset.tid].points=+inp.value||0;});
+      saveState();
+    }
+    editPts=!editPts;renderStandings();
+  });
+  document.getElementById('celebBtn').addEventListener('click',function(){confetti(120);});
+  if(editPts){
+    el.querySelectorAll('.pts-in').forEach(function(inp){
+      inp.addEventListener('change',function(){teams[+this.dataset.tid].points=+this.value||0;saveState();});
+    });
+  }
+}
+
+// ─── FACTS ──────────────────────────────────────────────────────
+function renderFacts(){
+  var el=document.getElementById('pg-facts');
+  var html='<div class="stitle">🌎 Country Facts & Recipes</div><div class="ssub">All 32 nations · Football history & traditional recipes</div>';
+  html+='<input class="fsearch" id="fsearch" placeholder="🔍 Search countries..." value="'+esc(factsQ)+'">';
+  html+='<div class="facts-grid" id="facts-grid"></div>';
+  el.innerHTML=html;
+  document.getElementById('fsearch').addEventListener('input',function(){factsQ=this.value;renderFactsGrid();});
+  renderFactsGrid();
+}
+function renderFactsGrid(){
+  var grid=document.getElementById('facts-grid');
+  if(!grid) return;
+  var q=factsQ.toLowerCase();
+  var html='';
+  ALL.forEach(function(c){
+    if(q&&!c.n.toLowerCase().includes(q)) return;
+    var d=FACTS[c.n]; if(!d) return;
+    var tab=factTabs[c.n]||'fact';
+    html+='<div class="fcard"><div class="fhead"><span class="fflag">'+c.f+'</span><span class="fcname">'+esc(c.n)+'</span></div>';
+    html+='<div class="ftabs"><button class="ftab'+(tab==='fact'?' active':'')+'" data-cn="'+esc(c.n)+'" data-tab="fact">⚽ Football</button>';
+    html+='<button class="ftab'+(tab==='recipe'?' active':'')+'" data-cn="'+esc(c.n)+'" data-tab="recipe">🍽️ Recipe</button></div>';
+    html+='<div class="fbody">';
+    if(tab==='fact'){html+='<p>'+esc(d.fact)+'</p>';}
+    else{
+      html+='<div class="rtitle">'+d.recipe.name+'</div><ul class="ilist">';
+      d.recipe.ing.forEach(function(i){html+='<li>'+esc(i)+'</li>';});
+      html+='</ul><p class="rsteps">'+esc(d.recipe.steps)+'</p>';
+    }
+    html+='</div></div>';
+  });
+  if(!html) html='<div class="empty"><div class="ei">🔍</div><h3>No countries found</h3><p>Try a different search</p></div>';
+  grid.innerHTML=html;
+  grid.querySelectorAll('.ftab').forEach(function(b){
+    b.addEventListener('click',function(){factTabs[this.dataset.cn]=this.dataset.tab;renderFactsGrid();});
   });
 }
 
-function escapeHtml(str) {
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// ─── SMACK ──────────────────────────────────────────────────────
+function renderSmack(){
+  var el=document.getElementById('pg-smack');
+  var html='<div class="stitle">💬 Smack Talk Board</div><div class="ssub">Family trash talk · Keep it (mostly) friendly</div>';
+  html+='<div class="sfeed">';
+  if(!smack.length) html+='<div class="empty"><div class="ei">💬</div><h3>Silence...</h3><p>Be the first to talk smack</p></div>';
+  else smack.slice().reverse().forEach(function(msg){
+    var t=teams.find(function(x){return x.id===msg.tid;})||teams[0];
+    html+='<div class="sbubble"><div class="shead"><span class="smascot">'+t.mascot+'</span><span class="steam">'+esc(t.name)+'</span><span class="stime">'+esc(msg.time)+'</span></div>';
+    html+='<div class="stext">'+esc(msg.text)+'</div></div>';
+  });
+  html+='</div>';
+  html+='<div class="card" style="margin-bottom:16px"><div style="font-family:Barlow Condensed,sans-serif;font-size:.8rem;letter-spacing:2px;color:var(--gray);text-transform:uppercase;margin-bottom:12px">Drop your message</div>';
+  html+='<div class="scompose"><select class="ssel" id="sselect">';
+  teams.forEach(function(t){html+='<option value="'+t.id+'">'+t.mascot+' '+esc(t.name)+'</option>';});
+  html+='</select><input class="sinput" id="sinput" placeholder="Talk your smack..." maxlength="140"><button class="btn btn-green" id="ssend">Send 🔥</button></div></div>';
+  html+='<button class="btn btn-outline" id="sclear" style="font-size:.8rem;padding:6px 14px">🗑️ Clear All</button>';
+  el.innerHTML=html;
+
+  function send(){
+    var txt=document.getElementById('sinput').value.trim();
+    var tid=+document.getElementById('sselect').value;
+    if(!txt) return;
+    smack.push({tid:tid,text:txt,time:'Just now'});
+    saveState();document.getElementById('sinput').value='';renderSmack();
+  }
+  document.getElementById('ssend').addEventListener('click',send);
+  document.getElementById('sinput').addEventListener('keydown',function(e){if(e.key==='Enter')send();});
+  document.getElementById('sclear').addEventListener('click',function(){if(confirm('Clear all smack talk?')){smack=[];saveState();renderSmack();}});
 }
 
-// =============================================
-// NAV
-// =============================================
-document.getElementById('nav').addEventListener('click', e => {
-  const btn = e.target.closest('button[data-page]');
-  if (btn) { state.page = btn.dataset.page; render(); }
-});
-
-// =============================================
-// INIT
-// =============================================
-render();
+// ─── INIT ───────────────────────────────────────────────────────
+renderPage('setup');
 </script>
 </body>
 </html>
